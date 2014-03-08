@@ -25,8 +25,10 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 
-  gem 'better_errors'
-  gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :rbx]
+  gem 'better_errors'     # nice error screen
+  gem 'binding_of_caller' # REPL on error screen
+  gem 'pry-rails'         # some nicities for pry
+  gem 'jazz_hands'        # pry wrapper for rails
 
   gem 'guard-bundler'
   gem 'guard-rails'
