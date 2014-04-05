@@ -7,6 +7,7 @@ gem 'sqlite3'
 
 gem 'devise'
 gem 'pundit'
+gem 'attr_extras'
 
 gem 'jbuilder',     '~> 2.0'
 
