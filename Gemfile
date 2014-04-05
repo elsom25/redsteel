@@ -21,6 +21,10 @@ gem 'turbolinks'
 
 gem 'sdoc',         '~> 0.4.0', group: :doc
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'spring'
   gem 'quiet_assets'
