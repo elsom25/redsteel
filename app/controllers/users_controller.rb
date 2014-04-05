@@ -3,17 +3,13 @@ class UsersController < ApplicationController
   after_action :verify_authorized, except: [:show]
 
   def index
-    @users = User.all
+    @users = policy_scope(User)
     authorize @users
   end
 
   def show
     @user = User.find(params[:id])
-    unless current_user.admin?
-      unless @user == current_user
-        redirect_to root_path, :alert => "Access denied."
-      end
-    end
+    redirect_to root_path, alert: 'Access denied.' unless current_user.admin? || @user == current_user
   end
 
   def update
@@ -37,7 +33,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+protected
 
   def secure_params
     params.require(:user).permit(:role)

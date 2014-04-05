@@ -1,3 +1,1 @@
-class HomePolicy < ApplicationPolicy
-  def index? ; true ; end
-end
+class HomePolicy < PublicPolicy; end
