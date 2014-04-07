@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  auth:
+    login:              'Login'
+    logout:             'Logout'
+    new:                'Sign up'
+    edit:               'Edit account'
+  app:
+    title:              'Roommates'

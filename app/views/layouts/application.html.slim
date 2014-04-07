@@ -1,17 +1,21 @@
 doctype html
-html
+html lang=I18n.locale.to_s xmlns='http://www.w3.org/1999/xhtml'
   head
-    meta[name='viewport' content='width=device-width, initial-scale=1.0']
-    title= content_for?(:title) ? yield(:title) : 'Roomates'
-    meta name='description' content="#{content_for?(:description) ? yield(:description) : 'Roomates'}"
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    meta name='description' content=(content_for?(:description) ? yield(:description) : t('app.title'))
+
+    title= content_for?(:title) ? "#{yield(:title)}|#{t('app.title')}" : t('app.title')
+
     == stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    / Modernizr is required for Zurb Foundation
     == javascript_include_tag 'vendor/modernizr'
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
-  body
+    == yield :head
+
+  body class="controller-#{controller_path.gsub(/\//, '-')} action-#{action_name}"
     header
       == render 'layouts/navigation'
-    main[role='main']
       == render 'layouts/messages'
+    main[role='main']
       == yield
