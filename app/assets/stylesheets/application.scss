@@ -1,5 +1,17 @@
-// import the CSS framework
-@import "foundation";
+// project settings and frameworks
+@import 'modules/base';
+
+// project specific css
+// @import 'partials/globals';
+// @import 'partials/static';
+// @import 'partials/error';
+// @import 'partials/index';
+// @import 'partials/blog';
+// @import 'partials/team';
+// @import 'partials/endorsements';
+
+//
+// TODO
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
@@ -81,3 +93,4 @@ section {
   @extend .radius;
   @extend .tiny;
 }
+

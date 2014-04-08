@@ -1,0 +1,45 @@
+@mixin standard-box-shadow($color:transparentize(black, 0.4)) {
+  @include single-box-shadow($color: $color, $hoff: 0, $voff: 0, $blur: 7px);
+}
+
+//
+// Media Queries ++
+
+// Media Query Ranges
+// $small-range: (0em, 40em);
+// $medium-range: (40.063em, 64em);
+// $large-range: (64.063em, 90em);
+// $xlarge-range: (90.063em, 120em);
+// $xxlarge-range: (120.063em);
+@mixin respond-to($media) {
+  @if $media == medium {
+    @include min-screen(40.063em) { @content; }
+  }
+}
+
+// ====================================
+// Extendables
+
+
+//
+// Others
+
+@mixin vertical-wrap { position:relative; width:100%; display:table; height:100%; }
+%vertical-wrap { @include vertical-wrap; }
+
+@mixin vertical { display:table-cell; vertical-align:middle; width:100%; }
+%vertical { @include vertical; }
+
+%floating-card {
+  @include standard-box-shadow;
+  @include border-radius(5px);
+  background:white; padding:0.75em 1.5em; margin-bottom:1.5em;
+  header { margin-bottom:1em; }
+  h2 { font-size:1.8em; margin-bottom:0.2em; }
+}
+@mixin floating-card($background:false, $padding:false, $margin:false) {
+  @extend %floating-card;
+  @if $background { background: $background; }
+  @if $padding { padding: $padding; }
+  @if $margin { margin: $margin; }
+}
