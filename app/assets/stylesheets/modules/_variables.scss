@@ -1,13 +1,26 @@
+// ============================================================================
+// Simple Variables
+// ----------------------------------------------------------------------------
+// Define particular attributes, but not set to a "style"
 //
-// Custom Colours
 
-$off-white:  #eee;
-$light-gray: #ccc;
-$med-gray:   #999;
-$dark-gray:  #444;
-$off-black:  #222;
+// Colours
+$off-white:          #eee;
+$light-gray:         #ccc;
+$med-gray:           #999;
+$dark-gray:          #444;
+$off-black:          #222;
 
-$red:        #af2229;
-$blue:       #0065B5;
-$gold:       #F2B205; // UW: #FBC205
-$teal:       #02B6B3;
+$red:                #af2229;
+$blue:               #268DDF;
+
+// ============================================================================
+// Style Variables
+// ----------------------------------------------------------------------------
+// Sets particular style requirements
+//
+
+$primary-color:      $blue;
+$dark-primary-color: darken($primary-color, 7%);
+
+$font-color:         $dark-gray;
