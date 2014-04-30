@@ -5,11 +5,10 @@ html lang=I18n.locale.to_s xmlns='http://www.w3.org/1999/xhtml'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta name='description' content=(content_for?(:description) ? yield(:description) : t('app.title'))
 
-    title= content_for?(:title) ? "#{yield(:title)}|#{t('app.title')}" : t('app.title')
+    title= content_for?(:title) ? "#{yield(:title)} | #{t('app.title')}" : t('app.title')
 
     == stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    == javascript_include_tag 'vendor/modernizr'
-    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+    == javascript_include_tag :modernizr
     == csrf_meta_tags
     == yield :head
 
@@ -19,3 +18,7 @@ html lang=I18n.locale.to_s xmlns='http://www.w3.org/1999/xhtml'
       == render 'layouts/messages'
     main[role='main']
       == yield
+
+    / Javascript files
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+    == yield :js
