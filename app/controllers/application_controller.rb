@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Pundit
+  include Pundit # authorization
   protect_from_forgery with: :exception
 
   # Verify that controller actions are authorized.
@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-private
+protected
 
   def user_not_authorized
     flash[:alert] = 'You are not authorized to perform this action.'

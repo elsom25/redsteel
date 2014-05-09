@@ -1,10 +1,13 @@
 class UserPolicy < ApplicationPolicy
   def index?   ; @user.admin? ; end
-  def update?  ; @user.admin? ; end
   def destroy? ; @user.admin? ; end
 
-  def show?
+  def update?
     @user.admin? || User.find(params[:id]) == @user
+  end
+
+  def show?
+    self.update?
   end
 
   class Scope
