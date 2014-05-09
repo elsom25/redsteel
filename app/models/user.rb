@@ -11,5 +11,4 @@ protected
   def set_default_role
     self.role ||= :user
   end
-
 end

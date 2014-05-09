@@ -1,0 +1,55 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'vendor/**'
+    - 'bin/**'
+    - 'db/**'
+
+AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+AlignHash:
+  EnforcedHashRocketStyle: separator
+  EnforcedColonStyle: separator
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+EndAlignment:
+  AlignWith: variable
+
+Encoding:
+  EnforcedStyle: when_needed
+
+IfUnlessModifier:
+  MaxLineLength: 120
+
+LineLength:
+  Max: 120
+
+NonNilCheck:
+  IncludeSemanticChanges: true
+
+RaiseArgs:
+  EnforcedStyle: compact
+
+Semicolon:
+  AllowAsExpressionSeparator: true
+
+SpaceBeforeBlockBraces:
+  EnforcedStyle: no_space
+
+SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+SingleLineMethods:
+  Enabled: false
+
+WhileUntilModifier:
+  MaxLineLength: 120
