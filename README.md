@@ -1,4 +1,4 @@
-Roomates
+Red Steel
 =========
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem

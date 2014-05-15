@@ -1,47 +1,43 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.2'
 
-gem 'rails',        '~> 4.1.0'
-gem 'thin'
-gem 'sqlite3'
+gem 'rails',                '~> 4.1.0'        # Rails
+gem 'turbolinks'                              # Makes page loads faster
+gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
+gem 'pg',      group: :production             # Production DB
 
-gem 'devise'
-gem 'pundit'
-gem 'attr_extras'
+# Server
+gem 'thin'                                    # Nicer server
+gem 'devise'                                  # User and Account Management
+gem 'pundit'                                  # User and Role Authorization
+gem 'attr_extras'                             # Simplified PORO's
 
-gem 'jbuilder',     '~> 2.0'
+# Javascript
+gem 'jquery-rails'                            # jQuery
+gem 'jquery-turbolinks'                       # Turbolinks jQuery adapter
 
-gem 'foundation-rails'
+# Assets
+gem 'sass-rails',           '~> 4.0.3'
+gem 'coffee-rails',         '~> 4.0.0'
+gem 'uglifier',             '>= 1.3.0'
 gem 'slim-rails'
-gem 'sass-rails',   '~> 4.0.1'
-gem 'compass-rails'
-gem 'uglifier',     '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'modernizr-rails'
-gem 'jquery-rails'
-gem 'turbolinks'
-
-gem 'sdoc',         '~> 0.4.0', group: :doc
-
-group :production do
-  gem 'rails_12factor'
-end
+gem 'compass-rails',        '~> 1.1.7'
+gem 'foundation-rails'
 
 group :development do
-  gem 'spring'
-  gem 'quiet_assets'
-  gem 'rails_layout'
+  gem 'spring'                                # Rails quick loader
+  gem 'better_errors'                         # Nice errors screens
+  gem 'binding_of_caller'                     # Req'd for `better_errors`
+  gem 'quiet_assets'                          # Reduces console output
+  # gem 'pry-rails'                             # some nicities for pry
+  # gem 'jazz_hands'                            # pry wrapper for rails
 
-  gem 'better_errors'     # nice error screen
-  gem 'binding_of_caller' # REPL on error screen
-  gem 'pry-rails'         # some nicities for pry
-  gem 'jazz_hands'        # pry wrapper for rails
+  gem 'dotenv-rails',       '~> 0.10'
 
   gem 'guard-bundler'
   gem 'guard-rails'
+end
 
-  gem 'hub',        require: false
-  gem 'rb-fchange', require: false
-  gem 'rb-fsevent', require: false
-  gem 'rb-inotify', require: false
+group :staging, :production do
+  gem 'rails_12factor'                        # Allow heroku to compile assets
 end
