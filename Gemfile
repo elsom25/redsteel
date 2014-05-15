@@ -25,14 +25,16 @@ gem 'compass-rails',        '~> 1.1.7'
 gem 'foundation-rails'
 
 group :development do
-  gem 'spring'                                # Rails quick loader
   gem 'better_errors'                         # Nice errors screens
   gem 'binding_of_caller'                     # Req'd for `better_errors`
   gem 'quiet_assets'                          # Reduces console output
-  # gem 'pry-rails'                             # some nicities for pry
+  gem 'pry-rails'                             # some nicities for pry
   # gem 'jazz_hands'                            # pry wrapper for rails
+end
 
-  gem 'dotenv-rails',       '~> 0.10'
+group :development, :test do
+  gem 'spring'                                # Rails quick loader
+  gem 'dotenv-rails',       '~> 0.10'         # Nicer ENV variable handling
 
   gem 'guard-bundler'
   gem 'guard-rails'
