@@ -1,3 +1,5 @@
+[![Build Status](https://snap-ci.com/GEhO6qTegOcOh-Zp3mAs-AzUStu7ZcNaAeEyQ8ujNTk/build_image)](https://snap-ci.com/elsom25/redsteel/branch/master)
+
 Red Steel
 =========
 
@@ -33,5 +35,5 @@ Run
 Useful Things
 -------------
 
-* You'll see a link to this on every PR, but if you ever feel like checking in on our Continuos Integration, head on over to [Snap](https://snap-ci.com/elsom25/redsteel/branch)!
+* You'll see a link to this on every PR, but if you ever feel like checking in on our Continuos Integration, head on over to [Snap](https://snap-ci.com/elsom25/redsteel/branch/master)!
 * Our story management is handled by [Trello](https://trello.com/b/K3CEC8cd/tech-planning)! Don't forget to name branches after the story codes.
