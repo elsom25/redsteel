@@ -7,18 +7,29 @@ html lang=I18n.locale.to_s xmlns='http://www.w3.org/1999/xhtml'
 
     title= content_for?(:title) ? "#{yield(:title)} | #{t('app.title')}" : t('app.title')
 
+    == stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Exo+2:100,300,300italic'
+    == stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Roboto:300'
+    == stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700'
     == stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    == javascript_include_tag :modernizr
+
+    == javascript_include_tag 'modernizr.min'
+    == javascript_include_tag 'feature_tests'
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+
     == csrf_meta_tags
     == yield :head
 
-  body class="controller-#{controller_path.gsub(/\//, '-')} action-#{action_name}"
+  body[data-controller="#{controller.controller_name}" data-action="#{action_name}"]
+    .loading-indicator[style='display:none;']
+      .spinner
+        .cube1
+        .cube2
+        i.ie-spinner.fa.fa-spinner.fa-spin.fa-3x[style='display:none;']
     header
       == render 'layouts/navigation'
       == render 'layouts/messages'
     main[role='main']
-      == yield
+      == content_for?(:content) ? yield(:content) : yield
 
     / Javascript files
-    == javascript_include_tag 'application', 'data-turbolinks-track' => true
-    == yield :js
+    == javascript_include_tag 'foundation_setup', 'data-turbolinks-track' => true

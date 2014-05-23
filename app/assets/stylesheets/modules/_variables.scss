@@ -11,9 +11,10 @@ $med-gray:           #999;
 $dark-gray:          #444;
 $off-black:          #222;
 
-$blue:               #268DDF;
+$blue:               #268ddf;
 $red:                #af2229;
 $purple:             #af06be;
+$purple-gray:        #5c5173;
 
 // ============================================================================
 // Style Variables
@@ -21,7 +22,8 @@ $purple:             #af06be;
 // Sets particular style requirements
 //
 
-$primary-color:        $purple;
-$primary-color-adjust: -7%;
+$primary-color:         $purple;
+$secondary-color:       $purple-gray;
+$primary-color-adjust:  -7%;
 
-$font-color:           $dark-gray;
+$font-color:            $dark-gray;
