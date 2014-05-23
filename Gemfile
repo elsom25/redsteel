@@ -3,8 +3,8 @@ ruby '2.1.2'
 
 gem 'rails',                '~> 4.1.0'        # Rails
 gem 'turbolinks'                              # Makes page loads faster
-gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 gem 'pg',      group: :production             # Production DB
+gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 
 # Server
 gem 'thin'                                    # Nicer server
