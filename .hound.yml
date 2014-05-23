@@ -3,7 +3,6 @@ AllCops:
   Exclude:
     - 'bin/**/*'
     - 'db/**/*'
-    - 'test/factories/**/*'
     - 'vendor/**/*'
 
 AccessModifierIndentation:
@@ -30,6 +29,10 @@ Encoding:
 
 IfUnlessModifier:
   MaxLineLength: 120
+
+IndentationConsistency:
+  Exclude:
+    - 'test/factories/**/*'
 
 LineLength:
   Max: 120
