@@ -3,8 +3,6 @@ require 'test_helper'
 describe User do
   let(:user){ FactoryGirl.create(:user) }
 
-  # Not good tests >_>
-
   describe 'creating' do
     it 'should require unique email' do
       user.save.must_equal true
