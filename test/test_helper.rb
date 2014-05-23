@@ -16,8 +16,6 @@ class ActiveSupport::TestCase
 
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
-
-  fixtures :all
 end
 
 class ActionController::TestCase
@@ -25,11 +23,6 @@ class ActionController::TestCase
 end
 
 class MiniTest::Spec
-  before :each do
-    DeferredGarbageCollection.start
-  end
-
-  after :each do
-    DeferredGarbageCollection.reconsider
-  end
+  before { DeferredGarbageCollection.start }
+  after  { DeferredGarbageCollection.reconsider }
 end
