@@ -5,55 +5,72 @@ AllCops:
     - 'db/**/*'
     - 'vendor/**/*'
 
-AccessModifierIndentation:
+Style/AccessModifierIndentation:
   EnforcedStyle: outdent
 
-AlignHash:
+Style/AlignHash:
   EnforcedHashRocketStyle: separator
   EnforcedColonStyle: separator
 
-ClassAndModuleChildren:
+Style/ClassAndModuleChildren:
   Enabled: false
 
-Documentation:
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
+
+Style/Documentation:
   Enabled: false
 
-EmptyLineBetweenDefs:
+Style/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
 
-EndAlignment:
+Style/EndAlignment:
   AlignWith: variable
 
-Encoding:
+Style/Encoding:
   EnforcedStyle: when_needed
 
-IfUnlessModifier:
+Style/IfUnlessModifier:
   MaxLineLength: 120
 
-IndentationConsistency:
+Style/IndentationConsistency:
   Exclude:
     - 'test/factories/**/*'
 
-LineLength:
+Style/IndentationWidth:
+  Exclude:
+    - 'test/factories/**/*'
+
+Style/LineLength:
   Max: 120
 
-NonNilCheck:
+Style/NonNilCheck:
   IncludeSemanticChanges: true
 
-RaiseArgs:
+Style/RaiseArgs:
   EnforcedStyle: compact
 
-Semicolon:
+Style/Semicolon:
   AllowAsExpressionSeparator: true
 
-SpaceBeforeBlockBraces:
+Style/SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
 
-SpaceAroundEqualsInParameterDefault:
+Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
-SingleLineMethods:
+Style/SingleLineMethods:
   Enabled: false
 
-WhileUntilModifier:
+Style/WhileUntilModifier:
   MaxLineLength: 120
+
+##################### Lint ##################################
+
+Lint/EndAlignment:
+  AlignWith: variable
