@@ -2,20 +2,22 @@ AllCops:
   RunRailsCops: true
   Exclude:
     - 'bin/**/*'
+    - 'config/environments/**/*'
+    - 'config/initializers/devise.rb'
     - 'db/**/*'
     - 'vendor/**/*'
 
-Style/AccessModifierIndentation:
+AccessModifierIndentation:
   EnforcedStyle: outdent
 
-Style/AlignHash:
+AlignHash:
   EnforcedHashRocketStyle: separator
   EnforcedColonStyle: separator
 
-Style/ClassAndModuleChildren:
+ClassAndModuleChildren:
   Enabled: false
 
-Style/CollectionMethods:
+CollectionMethods:
   PreferredMethods:
     collect: 'map'
     collect!: 'map!'
@@ -23,54 +25,54 @@ Style/CollectionMethods:
     detect: 'find'
     find_all: 'select'
 
-Style/Documentation:
+Documentation:
   Enabled: false
 
-Style/EmptyLineBetweenDefs:
+EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
 
-Style/EndAlignment:
+EndAlignment:
   AlignWith: variable
 
-Style/Encoding:
+Encoding:
   EnforcedStyle: when_needed
 
-Style/IfUnlessModifier:
+IfUnlessModifier:
   MaxLineLength: 120
 
-Style/IndentationConsistency:
+IndentationConsistency:
   Exclude:
-    - 'test/factories/**/*'
+    - '**/factories/**/*'
 
-Style/IndentationWidth:
+IndentationWidth:
   Exclude:
-    - 'test/factories/**/*'
+    - '**/factories/**/*'
 
-Style/LineLength:
+LineLength:
   Max: 120
 
-Style/NonNilCheck:
+NonNilCheck:
   IncludeSemanticChanges: true
 
-Style/RaiseArgs:
+RaiseArgs:
   EnforcedStyle: compact
 
-Style/Semicolon:
+Semicolon:
   AllowAsExpressionSeparator: true
 
-Style/SpaceBeforeBlockBraces:
+SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
 
-Style/SpaceAroundEqualsInParameterDefault:
+SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
-Style/SingleLineMethods:
+SingleLineMethods:
   Enabled: false
 
-Style/WhileUntilModifier:
+WhileUntilModifier:
   MaxLineLength: 120
 
 ##################### Lint ##################################
 
-Lint/EndAlignment:
+EndAlignment:
   AlignWith: variable
