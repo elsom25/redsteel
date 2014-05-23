@@ -40,7 +40,6 @@ end
 group :development, :test do
   gem 'minitest-spec-rails'                   # Testing framework
   gem 'factory_girl_rails', '~> 4.0'          # Testing factories
-  gem 'database_cleaner'                      # Cleans DB between tests
 
   gem 'quiet_assets'                          # Reduces console output
 
