@@ -1,3 +1,5 @@
+include FactoryGirl::Syntax::Methods
+
 class MiniTest::Spec
   include FactoryGirl::Syntax::Methods
 end
