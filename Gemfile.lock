@@ -44,6 +44,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    ansi (1.4.3)
     arel (5.0.1.20140414130214)
     attr_extras (3.0.0)
     awesome_print (1.2.0)
@@ -148,6 +149,11 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.3.4)
+    minitest-reporters (1.0.4)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     minitest-spec-rails (5.0.3)
       minitest (~> 5.0)
       rails (~> 4.1.0.rc2)
@@ -209,6 +215,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.4)
       ffi (>= 0.5.0)
+    ruby-progressbar (1.5.1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -278,6 +285,7 @@ DEPENDENCIES
   jazz_hands!
   jquery-rails
   jquery-turbolinks
+  minitest-reporters
   minitest-spec-rails
   pg
   pry-byebug

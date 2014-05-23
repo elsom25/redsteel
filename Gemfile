@@ -39,6 +39,7 @@ end
 
 group :development, :test do
   gem 'minitest-spec-rails'                   # Testing framework
+  gem 'minitest-reporters'
   gem 'factory_girl_rails', '~> 4.0'          # Testing factories
 
   gem 'quiet_assets'                          # Reduces console output

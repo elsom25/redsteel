@@ -1,9 +1,9 @@
 require 'test_helper'
 
 describe User do
-  let(:user){ create(:user) }
+  let(:user){ create :user }
 
-  describe 'creating' do
+  describe '#create' do
     it 'should require unique email' do
       new_user = build :user, email: user.email
       new_user.wont_be :valid?

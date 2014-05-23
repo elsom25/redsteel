@@ -2,8 +2,9 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-require 'minitest/spec'
 require 'minitest/pride' # awesome colorful output
+require 'minitest/reporters'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in test/support/ and its subdirectories.
