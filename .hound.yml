@@ -1,9 +1,10 @@
 AllCops:
   RunRailsCops: true
   Exclude:
-    - 'vendor/**/*'
     - 'bin/**/*'
     - 'db/**/*'
+    - 'test/factories/**/*'
+    - 'vendor/**/*'
 
 AccessModifierIndentation:
   EnforcedStyle: outdent

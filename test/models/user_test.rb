@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe User do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user){ FactoryGirl.create(:user) }
 
   # Not good tests >_>
 
