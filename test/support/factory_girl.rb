@@ -1,4 +1,6 @@
-include FactoryGirl::Syntax::Methods
+class ActiveSupport::TestCase
+  include FactoryGirl::Syntax::Methods
+end
 
 class MiniTest::Spec
   include FactoryGirl::Syntax::Methods
