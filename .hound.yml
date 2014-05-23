@@ -1,9 +1,11 @@
 AllCops:
   RunRailsCops: true
   Exclude:
-    - 'vendor/**/*'
     - 'bin/**/*'
+    - 'config/environments/**/*'
+    - 'config/initializers/devise.rb'
     - 'db/**/*'
+    - 'vendor/**/*'
 
 AccessModifierIndentation:
   EnforcedStyle: outdent
@@ -14,6 +16,14 @@ AlignHash:
 
 ClassAndModuleChildren:
   Enabled: false
+
+CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
 
 Documentation:
   Enabled: false
@@ -29,6 +39,14 @@ Encoding:
 
 IfUnlessModifier:
   MaxLineLength: 120
+
+IndentationConsistency:
+  Exclude:
+    - '**/factories/**/*'
+
+IndentationWidth:
+  Exclude:
+    - '**/factories/**/*'
 
 LineLength:
   Max: 120
@@ -53,3 +71,8 @@ SingleLineMethods:
 
 WhileUntilModifier:
   MaxLineLength: 120
+
+##################### Lint ##################################
+
+EndAlignment:
+  AlignWith: variable

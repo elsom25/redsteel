@@ -17,14 +17,16 @@ gem 'jquery-rails'                            # jQuery
 gem 'jquery-turbolinks'                       # Turbolinks jQuery adapter
 
 # Assets
-gem 'sass-rails',           '~> 4.0.3'
-gem 'coffee-rails',         '~> 4.0.0'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'uglifier',             '>= 1.3.0'
 gem 'slim-rails'
 gem 'compass-rails',        '~> 1.1.7'
-gem 'foundation-rails'
+gem 'foundation-rails',     '~> 5.2'
+gem 'font-awesome-rails'
 
 group :development do
+  gem 'spring'                                # Rails quick loader
   gem 'better_errors'                         # Nice errors screens
   gem 'binding_of_caller'                     # Req'd for `better_errors`
 
@@ -36,13 +38,17 @@ group :development do
 end
 
 group :development, :test do
-  gem 'spring'                                # Rails quick loader
+  gem 'minitest-spec-rails'                   # Testing framework
+  gem 'minitest-reporters'
+  gem 'factory_girl_rails', '~> 4.0'          # Testing factories
+
   gem 'quiet_assets'                          # Reduces console output
 
   gem 'dotenv-rails',       '~> 0.10'         # Nicer ENV variable handling
 
   gem 'guard-bundler'
   gem 'guard-rails'
+  gem 'guard-minitest'
 end
 
 group :staging, :production do
