@@ -1,0 +1,20 @@
+::selection { background:$primary-color; background:transparentize($primary-color, .7); color:#fff; }
+::-moz-selection { background:$primary-color; background:transparentize($primary-color, .7); color:#fff; }
+
+p { font-weight:100; }
+
+.alert-box { $alert: mix($primary-color, $alert-color); $success: mix($primary-color, $success-color);
+  font-size:1rem; left:0; padding:1.25rem 0; position:absolute; right:0; text-align:center; top:0;
+  &.alert { background-color:$alert; border-color:darken($alert, 10%); }
+  &.success { background-color:$success; border-color:darken($success, 10%); }
+  a { border-bottom:none !important; }
+}
+
+// spinner
+.loading-indicator { $box-size:32px*1.5; $cube:10px*1.5;
+  @include transition(opacity 0.2s ease-in-out 0);
+  background:#000; cursor:wait; filter:alpha(opacity=60); height:100%; padding:0; position:fixed; text-align:center; margin:0; opacity:0.6; width:100%; z-index:1;
+  .spinner { color:#fff; height:$box-size; width:$box-size; margin:auto; position: absolute; top:0; bottom:0; left:0; right:0;}
+  .cube1, .cube2 { @include animation(cubemove 1.8s infinite ease-in-out); background-color:#fff; height:$cube; left:0; position:absolute; top:0; width:$cube; }
+  .cube2 { @include animation-delay(-0.9s); }
+}

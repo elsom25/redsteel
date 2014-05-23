@@ -13,38 +13,37 @@
 //   Sass 3.2.0+
 //
 //  Version:
-//   1.3                                      // developed on 14/11/2013
+//   2.2                              // developed on 25/02/2013
+//
+// Variables:
+//   $units: 1px;                     // default units for 'screen' mixins - it must include a digit!
 //
 // Mixins:
-//   @ min-screen(width)                      // shortcut for @media screen and (min-width ...)
-//   @ max-screen(width)                      // shortcut for @media screen and (max-width ...)
-//   @ screen(min-width, max-width)           // shortcut for @media screen and (min-width ...) and (max-width ...)
+//   @ min-screen(width)              // shortcut for @media screen and (min-width ...)
+//   @ max-screen(width)              // shortcut for @media screen and (max-width ...)
+//   @ screen(min-width, max-width)   // shortcut for @media screen and (min-width ...) and (max-width ...)
 //   ---
-//   @ min-screen-height(height)              // shortcut for @media screen and (min-height ...)
-//   @ max-screen-height(height)              // shortcut for @media screen and (max-height ...)
-//   @ screen-height(min-height, max-height)  // shortcut for @media screen and (min-height ...) and (max-height ...)
+//   @ iphone3                        // only iPhone (2, 3G, 3GS) landscape & portrait
+//   @ iphone3-landscape              // only iPhone (2, 3G, 3GS) only landscape
+//   @ iphone3-portrait               // only iPhone (2, 3G, 3GS) only portrait
 //   ---
-//   @ iphone3                                // only iPhone (2, 3G, 3GS) landscape & portrait
-//   @ iphone3(landscape)                     // only iPhone (2, 3G, 3GS) only landscape
-//   @ iphone3(portrait)                      // only iPhone (2, 3G, 3GS) only portrait
+//   @ iphone4                        // only iPhone (4, 4S) landscape & portrait
+//   @ iphone4-landscape              // only iPhone (4, 4S) only landscape
+//   @ iphone4-portrait               // only iPhone (4, 4S) only portrait
 //   ---
-//   @ iphone4                                // only iPhone (4, 4S) landscape & portrait
-//   @ iphone4(landscape)                     // only iPhone (4, 4S) only landscape
-//   @ iphone4(portrait)                      // only iPhone (4, 4S) only portrait
+//   @ iphone5                        // only iPhone (5) landscape & portrait
+//   @ iphone5-landscape              // only iPhone (5) only landscape
+//   @ iphone5-portrait               // only iPhone (5) only portrait
 //   ---
-//   @ iphone5                                // only iPhone (5) landscape & portrait
-//   @ iphone5(landscape)                     // only iPhone (5) only landscape
-//   @ iphone5(portrait)                      // only iPhone (5) only portrait
+//   @ ipad                           // only iPad (1, 2, Mini) landscape & portrait
+//   @ ipad-landscape                 // only iPad (1, 2, Mini) only landscape
+//   @ ipad-portrait                  // only iPad (1, 2, Mini) only portrait
 //   ---
-//   @ ipad                                   // all iPads (1, 2, 3, 4, Mini) landscape & portrait
-//   @ ipad(landscape)                        // all iPads (1, 2, 3, 4, Mini) only landscape
-//   @ ipad(portrait)                         // all iPads (1, 2, 3, 4, Mini) only portrait
+//   @ ipad-retina                    // only iPad (3, 4) landscape & portrait
+//   @ ipad-retina-landscape          // only iPad (3, 4) only landscape
+//   @ ipad-retina-portrait           // only iPad (3, 4) only portrait
 //   ---
-//   @ ipad-retina                            // only iPad (3, 4) landscape & portrait
-//   @ ipad-retina(landscape)                 // only iPad (3, 4) only landscape
-//   @ ipad-retina(portrait)                  // only iPad (3, 4) only portrait
-//   ---
-//   @ hdpi(ratio)                            // devices with hidpi displays (default ratio: 1.3)
+//   @ hdpi(ratio)                    // devices with hidpi displays (default ratio: 1.3)
 //
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -52,9 +51,11 @@
 // --- screen ----------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin screen($resMin, $resMax)
+$units: 1px !default;
+
+@mixin screen($res-min, $res-max)
 {
-  @media screen and (min-width: $resMin) and (max-width: $resMax)
+  @media screen and ( min-width: if(unitless($res-min), $res-min*$units, $res-min) ) and ( max-width: if(unitless($res-max), $res-max*$units, $res-max) )
   {
     @content;
   }
@@ -62,7 +63,7 @@
 
 @mixin max-screen($res)
 {
-  @media screen and (max-width: $res)
+  @media screen and ( max-width: if(unitless($res), $res*$units, $res) )
   {
     @content;
   }
@@ -70,31 +71,7 @@
 
 @mixin min-screen($res)
 {
-  @media screen and (min-width: $res)
-  {
-    @content;
-  }
-}
-
-@mixin screen-height($resMin, $resMax)
-{
-  @media screen and (min-height: $resMin) and (max-height: $resMax)
-  {
-    @content;
-  }
-}
-
-@mixin max-screen-height($res)
-{
-  @media screen and (max-height: $res)
-  {
-    @content;
-  }
-}
-
-@mixin min-screen-height($res)
-{
-  @media screen and (min-height: $res)
+  @media screen and ( min-width: if(unitless($res), $res*$units, $res) )
   {
     @content;
   }
@@ -123,27 +100,30 @@
 // --- iphone ----------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin iphone3($orientation: all)
+@mixin iphone3
 {
-  $deviceMinWidth: 320px;
-  $deviceMaxWidth: 480px;
-  $devicePixelRatio: 1;
-
-  @if $orientation == all
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 1)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio)
-    {
-      @content;
-    }
+    @content;
   }
-  @else
+}
+
+@mixin iphone3-portrait
+{
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 1) and (orientation:portrait)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
-    {
-      @content;
-    }
+    @content;
+  }
+}
+
+@mixin iphone3-landscape
+{
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 1) and (orientation:landscape)
+  {
+    @content;
   }
 }
 
@@ -151,28 +131,30 @@
 // --- iphone-retina ---------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin iphone4($orientation: all)
+@mixin iphone4
 {
-  $deviceMinWidth: 320px;
-  $deviceMaxWidth: 480px;
-  $devicePixelRatio: 2;
-  $deviceAspectRatio: '2/3';
-
-  @if $orientation == all
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio)
-    {
-      @content;
-    }
+    @content;
   }
-  @else
+}
+
+@mixin iphone4-portrait
+{
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:portrait)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: 2/3) and (orientation:#{$orientation})
-    {
-      @content;
-    }
+    @content;
+  }
+}
+
+@mixin iphone4-landscape
+{
+  @media only screen and (min-device-width: 320px)  and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape)
+  {
+    @content;
   }
 }
 
@@ -180,54 +162,62 @@
 // --- iphone-5 --------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin iphone5($orientation: all)
+@mixin iphone5
 {
-  $deviceMinWidth: 320px;
-  $deviceMaxWidth: 568px;
-  $devicePixelRatio: 2;
-  $deviceAspectRatio: '40/71';
-
-  @if $orientation == all
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px)
+  and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio)
-    {
-      @content;
-    }
+    @content;
   }
-  @else
+}
+
+@mixin iphone5-portrait
+{
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px)
+  and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (orientation:portrait)
+
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio) and (orientation:#{$orientation})
-    {
-      @content;
-    }
+    @content;
+  }
+}
+
+@mixin iphone5-landscape
+{
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px)
+  and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (orientation:landscape)
+  {
+    @content;
   }
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
-// --- ipads (all) -----------------------------------------------------------------------------------------------------
+// --- ipad + ipad mini ------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin ipad($orientation: all)
+@mixin ipad
 {
-  $deviceMinWidth: 768px;
-  $deviceMaxWidth: 1024px;
-
-  @if $orientation == all
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+  and (-webkit-device-pixel-ratio: 1)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    {
-      @content;
-    }
+    @content;
   }
-  @else
+}
+
+@mixin ipad-portrait
+{
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+  and (-webkit-device-pixel-ratio: 1) and (orientation:portrait)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (orientation:#{$orientation})
-    {
-      @content;
-    }
+    @content;
+  }
+}
+
+@mixin ipad-landscape
+{
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+  and (-webkit-device-pixel-ratio: 1) and (orientation:landscape)
+  {
+    @content;
   }
 }
 
@@ -235,26 +225,29 @@
 // --- ipad-retina -----------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin ipad-retina($orientation: all)
+@mixin ipad-retina
 {
-  $deviceMinWidth: 768px;
-  $deviceMaxWidth: 1024px;
-  $devicePixelRatio: 2;
-
-  @if $orientation == all
+  @media screen and (min-device-width: 768px) and (max-device-width: 1024px)
+  and (-webkit-device-pixel-ratio: 2)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio)
-    {
-      @content;
-    }
+    @content;
   }
-  @else
+}
+
+@mixin ipad-retina-portrait
+{
+  @media screen and (min-device-width: 768px) and (max-device-width: 1024px)
+  and (-webkit-device-pixel-ratio: 2) and (orientation:portrait)
   {
-    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
-    {
-      @content;
-    }
+    @content;
+  }
+}
+
+@mixin ipad-retina-landscape
+{
+  @media screen and (min-device-width: 768px) and (max-device-width: 1024px)
+  and (-webkit-device-pixel-ratio: 2) and (orientation:landscape)
+  {
+    @content;
   }
 }
