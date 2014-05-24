@@ -1,3 +1,9 @@
+@mixin simple-link($normal, $hover:false) {
+  @include link-colors($normal, $hover);
+  &:active { position:relative; top:1px; }
+  &:hover, &:focus { color:$normal; }
+}
+
 @mixin vertical-align($offset:0%) {
   @include translateY(-50% + $offset); position:relative; top:50%;
 }

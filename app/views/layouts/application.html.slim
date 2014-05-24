@@ -25,11 +25,13 @@ html lang=I18n.locale.to_s xmlns='http://www.w3.org/1999/xhtml'
         .cube1
         .cube2
         i.ie-spinner.fa.fa-spinner.fa-spin.fa-3x[style='display:none;']
-    header
-      == render 'layouts/navigation'
-      == render 'layouts/messages'
-    main[role='main']
-      == content_for?(:content) ? yield(:content) : yield
+    .body-wrap
+      header.root-nav.contain-to-grid
+        == render 'layouts/navigation'
+      main
+        == render 'layouts/messages'
+        .content-wrap[role='main']
+          == content_for?(:content) ? yield(:content) : yield
 
     / Javascript files
     == javascript_include_tag 'foundation_setup', 'data-turbolinks-track' => true

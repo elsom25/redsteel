@@ -1,12 +1,19 @@
-.contain-to-grid
-  nav.top-bar[data-topbar]
-    /! Title Area
-    ul.title-area
-      li.name
-        h1= link_to t('app.title'), root_path
-      li.toggle-topbar.menu-icon: a href='#'
-        span Menu
+nav.top-bar[data-topbar]
+  /! Title Area
+  ul.title-area
+    li.name
+      h1= link_to t('app.title'), root_path
+    li.toggle-topbar.menu-icon: a href='#'
+      span Menu
 
-    /! Content
-    .top-bar-section
-      == render 'layouts/navigation_content'
+  /! Content
+  .top-bar-section
+    ul.right
+      - if user_signed_in?
+        - if current_user.admin?
+          = nav_link 'Users', users_path
+        = nav_link t('auth.edit'),   edit_user_registration_path
+        = nav_link t('auth.logout'), destroy_user_session_path, method: 'delete'
+      - else
+        = nav_link t('auth.new'),    new_user_registration_path
+        = nav_link t('auth.login'),  new_user_session_path

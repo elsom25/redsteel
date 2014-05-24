@@ -1,6 +1,5 @@
-/ Rails flash messages styled for Zurb Foundation
 - flash.each do |name, msg|
   - if msg.is_a?(String)
-    div[ class="alert-box #{name.to_s == 'notice' ? 'success' : 'alert'}" data-alert ]
+    .alert-box[class="#{name.to_s == 'notice' ? 'success' : 'alert'}" data-alert]
       div= msg
       a.close href="#" ×
