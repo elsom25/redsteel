@@ -5,16 +5,16 @@ FactoryGirl.define do
     password_confirmation 'bad_password'
 
     factory :named_user do
-      first_name 'Bob'
-      last_name  'Hippo'
+      given_name  'Bob'
+      family_name 'Hippo'
     end
 
     factory :admin_user do
       role :admin
 
       factory :named_admin_user do
-        first_name 'Admin'
-        last_name  'Hippo'
+        given_name  'Admin'
+        family_name 'Hippo'
       end
     end
   end

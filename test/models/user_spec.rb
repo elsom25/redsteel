@@ -16,48 +16,46 @@ describe User do
   end
 
   describe '#name' do
-    it 'should never be nil' do
-      user.name.wont_be_nil
-      user.name.must_equal ''
+    it 'should be nil with no name' do
+      user.name.must_be_nil
     end
 
-    it 'should be the first_name given only a first_name' do
-      user.first_name = 'first_name'
-      user.name.must_equal 'first_name'
+    it 'should be the given_name given only a given_name' do
+      user.given_name = 'given_name'
+      user.name.must_equal 'given_name'
     end
 
-    it 'should be the last_name given only a last_name' do
-      user.last_name = 'last_name'
-      user.name.must_equal 'last_name'
+    it 'should be the family_name given only a family_name' do
+      user.family_name = 'family_name'
+      user.name.must_equal 'family_name'
     end
 
-    it 'should be the first_name given both names' do
-      user.first_name = 'first_name'
-      user.last_name = 'last_name'
-      user.name.must_equal 'first_name'
+    it 'should be the given_name given both names' do
+      user.given_name = 'given_name'
+      user.family_name = 'family_name'
+      user.name.must_equal 'given_name'
     end
   end
 
   describe '#full_name' do
-    it 'should never be nil' do
-      user.full_name.wont_be_nil
-      user.full_name.must_equal ''
+    it 'should be nil with no name' do
+      user.full_name.must_be_nil
     end
 
-    it 'should be the first_name given only a first_name' do
-      user.first_name = 'first_name'
-      user.full_name.must_equal 'first_name'
+    it 'should be the given_name given only a given_name' do
+      user.given_name = 'given_name'
+      user.full_name.must_equal 'given_name'
     end
 
-    it 'should be the last_name given only a last_name' do
-      user.last_name = 'last_name'
-      user.full_name.must_equal 'last_name'
+    it 'should be the family_name given only a family_name' do
+      user.family_name = 'family_name'
+      user.full_name.must_equal 'family_name'
     end
 
     it 'should combine names nicely' do
-      user.first_name = 'first_name'
-      user.last_name = 'last_name'
-      user.full_name.must_equal 'first_name last_name'
+      user.given_name = 'given_name'
+      user.family_name = 'family_name'
+      user.full_name.must_equal 'given_name family_name'
     end
   end
 end
