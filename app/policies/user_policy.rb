@@ -17,7 +17,7 @@ class UserPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        [ scope.find(user.id) ]
+        [scope.find(user.id)]
       end
     end
   end
