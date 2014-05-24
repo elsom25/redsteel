@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable#, :omniauthable, omniauth_providers: [:facebook, :twitter, :gplus]
+  devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable
+  #       :omniauthable, omniauth_providers: [:facebook, :twitter, :gplus]
   enum role: [:user, :admin] # position 0 is the default
 
   def name
