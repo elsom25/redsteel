@@ -12,6 +12,7 @@ gem 'devise'                                  # User and Account Management
 gem 'pundit'                                  # User and Role Authorization
 gem 'attr_extras'                             # Simplified PORO's
 gem 'simple_form'                             # A nice form DSL
+gem 'country_select'                          # Provides a Country select for simple_form
 
 # Javascript
 gem 'jquery-rails'                            # jQuery

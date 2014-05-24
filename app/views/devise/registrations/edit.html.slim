@@ -1,7 +1,7 @@
 section.profile
   h1 Profile Information
 
-  = simple_form_for resource do |f|
+  = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, role: 'form' } do |f|
     = devise_error_messages!
     = f.input :given_name
     = f.input :family_name
@@ -21,13 +21,13 @@ section.profile
       i
         | (leave blank if you don't want to change it)
 
-      = f.password :password, autocomplete: 'off'
-      = f.password :password_confirmation, autocomplete: 'off'
+      = f.input :password, autocomplete: 'off'
+      = f.input :password_confirmation, autocomplete: 'off', label: false
 
     i
       | (we need your current password to confirm changes)
-    = f.password :current_password
-    button type="submit" Save
+    = f.input :current_password
+    = f.submit 'Update', class: 'button'
 
   h3 Cancel my account
   p Unhappy? #{link_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete}.

@@ -12,8 +12,9 @@ nav.top-bar[data-topbar]
       - if user_signed_in?
         - if current_user.admin?
           = nav_link 'Users', users_path
-        = nav_link t('auth.edit'),   edit_user_registration_path
-        = nav_link t('auth.logout'), destroy_user_session_path, method: 'delete'
+        = nav_link current_user.name, user_path(current_user)
+        = nav_link t('auth.edit'),    edit_user_registration_path
+        = nav_link t('auth.logout'),  destroy_user_session_path, method: 'delete'
       - else
         = nav_link t('auth.new'),    new_user_registration_path
         = nav_link t('auth.login'),  new_user_session_path
