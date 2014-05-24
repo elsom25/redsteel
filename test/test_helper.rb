@@ -23,6 +23,6 @@ class ActionController::TestCase
 end
 
 class MiniTest::Spec
-  before { DeferredGarbageCollection.start }
-  after  { DeferredGarbageCollection.reconsider }
+  before{ DeferredGarbageCollection.start }
+  after{ DeferredGarbageCollection.reconsider }
 end

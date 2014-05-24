@@ -73,6 +73,10 @@ SpaceAroundEqualsInParameterDefault:
 SingleLineMethods:
   Enabled: false
 
+SingleSpaceBeforeFirstArg:
+  Exclude:
+    - '**/factories/**/*'
+
 WhileUntilModifier:
   MaxLineLength: 120
 
