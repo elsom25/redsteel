@@ -3,7 +3,7 @@ class UserPolicy < ApplicationPolicy
   def destroy? ; @user.admin? ; end
 
   def update?
-    @user.admin? || User.find(params[:id]) == @user
+    @user.admin? || @user == @record
   end
 
   def show?
