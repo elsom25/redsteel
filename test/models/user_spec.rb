@@ -31,14 +31,14 @@ describe User do
       user3 = build :user
 
       user1.given_name = 'name'
-      user1.name.must_match /\w+/
+      user1.name.must_match(/\w+/)
 
       user2.family_name = 'name'
-      user2.name.must_match /\w+/
+      user2.name.must_match(/\w+/)
 
       user3.given_name = 'given_name'
       user3.family_name = 'family_name'
-      user3.name.must_match /\w+/
+      user3.name.must_match(/\w+/)
     end
   end
 
@@ -61,6 +61,46 @@ describe User do
       subject.given_name = 'given_name'
       subject.family_name = 'family_name'
       subject.full_name.must_equal 'given_name family_name'
+    end
+  end
+
+  describe '#full_address' do
+    it 'should be nil with no address fields' do
+      subject.full_address.must_be_nil
+    end
+
+    it 'should be present given address fields exist' do
+      subject.street_address = 'street_address'
+      subject.full_address.must_be :include?, 'street_address'
+
+      subject.locality = 'locality'
+      subject.full_address.must_be :include?, 'locality'
+
+      subject.postal_code = 'postal_code'
+      subject.full_address.must_be :include?, 'postal_code'
+
+      subject.country_name = 'country_name'
+      subject.full_address.must_be :include?, 'country_name'
+
+      # ensure fields havent been removed
+      subject.full_address.must_be :include?, 'street_address'
+      subject.full_address.must_be :include?, 'locality'
+      subject.full_address.must_be :include?, 'postal_code'
+    end
+  end
+
+  describe '#update_address!' do
+    it 'should update the users address fields' do
+      subject.locality.must_be_nil
+      subject.postal_code.must_be_nil
+      subject.country_name.must_be_nil
+
+      address = Address.new 'locality', 'postal_code', 'country_name'
+      subject.update_address! address
+
+      subject.locality.must_equal 'locality'
+      subject.postal_code.must_equal 'postal_code'
+      subject.country_name.must_equal 'country_name'
     end
   end
 end

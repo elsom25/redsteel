@@ -21,6 +21,18 @@ class User < ActiveRecord::Base
     "#{given_name} #{family_name}".strip if name.present?
   end
 
+  def full_address
+    return unless [street_address, locality, postal_code, country_name].any?(&:present?)
+    [street_address, locality, postal_code, country_name].compact.join(', ')
+  end
+
+  def update_address!(address)
+    self.locality = address.locality
+    self.postal_code = address.postal_code
+    self.country_name = address.country_name
+    self.save!
+  end
+
   def to_s
     full_name || email
   end
