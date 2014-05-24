@@ -1,4 +1,4 @@
 h3 Home
-- if current_user and current_user.admin?
+- if current_user
   - @users.each do |user|
-    p User: #{link_to user.email, user} Role: #{user.role || '-'}
+    p User: #{link_to user.email, user} Role: #{user.role}
