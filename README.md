@@ -32,6 +32,13 @@ Run
 2. Feel special!
 3. `exit` to quit (not `ctrl+c`! That only works with `rails s`)
 
+Tests
+-----
+
+* To run all tests: `rake`
+* To run a specific test file: `rake test TEST=test/models/widget_test.rb`
+* To run a specific test within a file: `ruby -Ilib:test test/models/widget_test.rb -n test_0003_refreshes`
+
 Useful Things
 -------------
 
