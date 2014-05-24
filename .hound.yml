@@ -57,6 +57,10 @@ NonNilCheck:
 RaiseArgs:
   EnforcedStyle: compact
 
+RedundantSelf:
+  Exclude:
+    - '**/models/**/*'
+
 Semicolon:
   AllowAsExpressionSeparator: true
 
