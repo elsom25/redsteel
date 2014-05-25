@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525182143) do
+ActiveRecord::Schema.define(version: 20140525184252) do
+
+  create_table "authentication_providers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "authentication_providers", ["name"], name: "index_name_on_authentication_providers"
 
   create_table "linked_omniauths", force: true do |t|
     t.integer "user_id",  null: false
@@ -22,6 +30,20 @@ ActiveRecord::Schema.define(version: 20140525182143) do
   end
 
   add_index "linked_omniauths", ["provider", "uid"], name: "index_linked_omniauths_on_provider_and_uid", unique: true
+
+  create_table "user_authentications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "authentication_provider_id"
+    t.string   "uid"
+    t.string   "token"
+    t.datetime "token_expires_at"
+    t.text     "data"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "user_authentications", ["authentication_provider_id"], name: "index_user_authentications_on_authentication_provider_id"
+  add_index "user_authentications", ["user_id"], name: "index_user_authentications_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

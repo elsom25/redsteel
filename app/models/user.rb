@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :twitter]
   has_many :linked_omniauths
+  has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
   enum role: [:user, :admin] # position 0 is the default
 
   MASCULINE = 'Masculine'.freeze
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
       [MASCULINE, FEMININE, OTHER]
     end
 
+    # linked_omniauths
     def find_or_create_by_omniauth(auth, extra={})
       user = LinkedOmniauth.where(provider: auth.provider, uid: auth.uid).first.try(:owner) ||
         User.create(extra.merge(linked_omniauths: [LinkedOmniauth.new(provider: auth.provider, uid: auth.uid, data: auth)]))
@@ -22,6 +24,15 @@ class User < ActiveRecord::Base
       else
         user
       end
+    end
+
+    # authentications
+    def create_from_omniauth(params)
+      attributes = {
+        email: params['info']['email'],
+        password: Devise.friendly_token
+      }
+      create(attributes)
     end
   end
 

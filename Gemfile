@@ -9,9 +9,11 @@ gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 # Server
 gem 'thin'                                    # Nicer server
 gem 'devise'                                  # User and Account Management
+gem 'domp'                                    # Devise OmniAuth Generator
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'geocoder'
+gem 'geocoder'                                # Determines address via geocodes & vis-versa
 gem 'pundit'                                  # User and Role Authorization
 gem 'attr_extras'                             # Simplified PORO's
 gem 'simple_form'                             # A nice form DSL
