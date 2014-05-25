@@ -43,7 +43,13 @@ Code Quality
 ------------
 
 * To run all code quality metrics: `rake quality`
-* There are lots of different tests you can run individually: `rake quality:reek`, `rake quality:flog`, `rake quality:flay`, `rake quality:rails_best_practices`
+* There are lots of different tests you can run individually: 
+  * `rake quality:reek` 
+  * `rake quality:flog`
+    * `rake quality:average` - checks that the average flog score is below a set threshold
+    * `rake quality:each` - indicates which methods are above a set threshold
+  * `rake quality:flay`
+  * `rake quality:rails_best_practices`
 
 Useful Things
 -------------
