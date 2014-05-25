@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524181808) do
+ActiveRecord::Schema.define(version: 20140525182143) do
+
+  create_table "linked_omniauths", force: true do |t|
+    t.integer "user_id",  null: false
+    t.string  "uid",      null: false
+    t.string  "provider", null: false
+    t.string  "nickname"
+    t.text    "data"
+  end
+
+  add_index "linked_omniauths", ["provider", "uid"], name: "index_linked_omniauths_on_provider_and_uid", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
