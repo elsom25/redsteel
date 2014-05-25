@@ -107,6 +107,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     diffy (3.0.4)
+    domp (0.0.7)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -372,6 +373,7 @@ DEPENDENCIES
   compass-rails (~> 1.1.7)
   country_select
   devise
+  domp
   dotenv-rails (~> 0.10)
   factory_girl_rails (~> 4.0)
   flay
@@ -387,6 +389,7 @@ DEPENDENCIES
   jquery-turbolinks
   minitest-reporters
   minitest-spec-rails
+  omniauth
   omniauth-facebook
   omniauth-twitter
   pg
