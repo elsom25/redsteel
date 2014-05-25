@@ -5,7 +5,7 @@ Reek::Rake::Task.new do |t|
   t.fail_on_error = false
 end
 
-namespace :analyzer do
+namespace :quality do
   desc 'run all code analyzing tools (reek, flog, flay, rails_best_practices)'
   task :all => ['reek', 'flog', 'flay', 'rails_best_practices'] do
     message :info, 'have been running all code analyzing tools'
@@ -87,7 +87,7 @@ namespace :analyzer do
     message :info, output
   end
 end
-task analyzer: ['analyzer:all'] do
+task quality: ['quality:all'] do
 end
 
 def message(type, message)
