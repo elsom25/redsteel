@@ -1,3 +1,3 @@
 class Address
-  vattr_initialize :locality, :postal_code, :country_name
+  vattr_initialize :locality, :region, :country_name
 end

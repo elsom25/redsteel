@@ -10,8 +10,8 @@ gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 gem 'thin'                                    # Nicer server
 gem 'devise'                                  # User and Account Management
 gem 'omniauth-facebook'
-gem 'omniauth-gplus'
 gem 'omniauth-twitter'
+gem 'geocoder'
 gem 'pundit'                                  # User and Role Authorization
 gem 'attr_extras'                             # Simplified PORO's
 gem 'simple_form'                             # A nice form DSL

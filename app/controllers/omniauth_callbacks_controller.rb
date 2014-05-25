@@ -51,16 +51,16 @@ protected
 
     if @user && @user.persisted?
       scrape(@user)
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => kind) if is_navigational_format?
+      sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
+      set_flash_message(:notice, :success, kind: kind) if is_navigational_format?
     else
       redirect_to new_user_session_path, status: 303, alert: @user.errors.full_messages.to_sentence
     end
   end
 
   def scrape(user)
-    # if user.is_a?(User) && scraper = ("#{auth.provider.titleize}DataScraper".constantize rescue nil)
-    #   scraper.delay.perform(user, auth)
-    # end
+    if user.is_a?(User) && scraper = ("#{auth.provider.titleize}DataScraper".constantize rescue nil)
+      scraper.delay.perform(user, auth)
+    end
   end
 end

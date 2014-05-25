@@ -126,6 +126,7 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     fssm (0.2.10)
+    geocoder (1.2.1)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -189,8 +190,6 @@ GEM
       hashie (>= 1.2, < 3)
       rack (~> 1.0)
     omniauth-facebook (1.6.0)
-      omniauth-oauth2 (~> 1.1)
-    omniauth-gplus (2.0.1)
       omniauth-oauth2 (~> 1.1)
     omniauth-oauth (1.0.1)
       oauth
@@ -356,6 +355,7 @@ DEPENDENCIES
   flog
   font-awesome-rails
   foundation-rails (~> 5.2)
+  geocoder
   guard-bundler
   guard-minitest
   guard-rails
@@ -365,7 +365,6 @@ DEPENDENCIES
   minitest-reporters
   minitest-spec-rails
   omniauth-facebook
-  omniauth-gplus
   omniauth-twitter
   pg
   pry-byebug

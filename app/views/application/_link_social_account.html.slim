@@ -1,0 +1,8 @@
+ul
+  - User.omniauth_providers.each do |provider|
+    li class="#{provider}"
+      - if object.linked_omniauths.where(provider: provider).count < 1
+        = simple_form_for object do
+          button[type='submit' name='link_provider' value=provider.to_s] Link #{provider.to_s.humanize}
+      - else
+        | #{provider.to_s.humanize} already linked
