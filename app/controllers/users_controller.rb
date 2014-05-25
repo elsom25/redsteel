@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  after_action :verify_authorized, except: [:show]
+  after_action :verify_authorized
+
+  before_action :find_user, only: [:show, :update, :destroy]
 
   def index
     @users = policy_scope(User)
@@ -8,13 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    redirect_to root_path, alert: 'Access denied.' unless current_user.admin? || @user == current_user
   end
 
   def update
-    @user = User.find(params[:id])
-    authorize @user
     if @user.update_attributes(secure_params)
       redirect_to users_path, notice: 'User updated.'
     else
@@ -23,10 +21,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    authorize user
-    if user != current_user
-      user.destroy
+    if @user != current_user
+      @user.destroy
       redirect_to users_path, notice: 'User deleted.'
     else
       redirect_to users_path, notice: "Can't delete yourself."
@@ -34,6 +30,11 @@ class UsersController < ApplicationController
   end
 
 protected
+
+  def find_user
+    @user = User.find params[:id]
+    authorize @user
+  end
 
   def secure_params
     params.require(:user).permit(:role)

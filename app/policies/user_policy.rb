@@ -3,7 +3,7 @@ class UserPolicy < ApplicationPolicy
   def destroy? ; @user.admin? ; end
 
   def update?
-    @user.admin? || User.find(params[:id]) == @user
+    @user.admin? || @user == @record
   end
 
   def show?
@@ -17,7 +17,7 @@ class UserPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.find(user.id)
+        [scope.find(user.id)]
       end
     end
   end

@@ -1,2 +1,5 @@
 h3 User
-p Email: #{@user.email || '-'}
+- if @user.email
+  p Email: #{@user.email}
+- if @user.full_name
+  p Name: #{@user.full_name}

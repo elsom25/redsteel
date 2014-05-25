@@ -1,14 +1,39 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  enum role: [:user, :admin]
-  after_initialize :set_default_role, if: :new_record?
+  devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable
+  #       :omniauthable, omniauth_providers: [:facebook, :twitter, :gplus]
+  enum role: [:user, :admin] # position 0 is the default
 
-protected
+  MASCULINE = 'Masculine'.freeze
+  FEMININE  = 'Feminine'.freeze
+  OTHER     = 'Other'.freeze
 
-  def set_default_role
-    self.role ||= :user
+  class << self
+    def gender_options
+      [MASCULINE, FEMININE, OTHER]
+    end
+  end
+
+  def name
+    given_name || family_name
+  end
+
+  def full_name
+    "#{given_name} #{family_name}".strip if name.present?
+  end
+
+  def full_address
+    return unless [street_address, locality, postal_code, country_name].any?(&:present?)
+    [street_address, locality, postal_code, country_name].compact.join(', ')
+  end
+
+  def update_address!(address)
+    self.locality = address.locality
+    self.postal_code = address.postal_code
+    self.country_name = address.country_name
+    self.save!
+  end
+
+  def to_s
+    full_name || email
   end
 end
