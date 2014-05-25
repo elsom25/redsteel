@@ -14,6 +14,13 @@ gem 'attr_extras'                             # Simplified PORO's
 gem 'simple_form'                             # A nice form DSL
 gem 'country_select'                          # Provides a Country select for simple_form
 
+# Code Quality
+gem 'term-ansicolor'
+gem 'flog'
+gem 'flay'
+gem 'reek'
+gem 'rails_best_practices'
+
 # Javascript
 gem 'jquery-rails'                            # jQuery
 gem 'jquery-turbolinks'                       # Turbolinks jQuery adapter
@@ -31,12 +38,6 @@ group :development do
   gem 'spring'                                # Rails quick loader
   gem 'better_errors'                         # Nice errors screens
   gem 'binding_of_caller'                     # Req'd for `better_errors`
-
-  # TEMP: Handle version issues;
-  # Makes the console much nicer and provices nice dev tools
-  gem 'jazz_hands',         github: 'nixme/jazz_hands',
-                            branch: 'bring-your-own-debugger'
-  gem 'pry-byebug'
 end
 
 group :development, :test do
@@ -45,12 +46,17 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'          # Testing factories
 
   gem 'quiet_assets'                          # Reduces console output
-
   gem 'dotenv-rails',       '~> 0.10'         # Nicer ENV variable handling
 
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-minitest'
+
+  # TEMP: Handle version issues;
+  # Makes the console much nicer and provices nice dev tools
+  gem 'jazz_hands',         github: 'nixme/jazz_hands',
+                            branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
 end
 
 group :staging, :production do
