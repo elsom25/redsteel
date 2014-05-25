@@ -39,6 +39,12 @@ Tests
 * To run a specific test file: `rake test TEST=test/models/widget_test.rb`
 * To run a specific test within a file: `ruby -Ilib:test test/models/widget_test.rb -n test_0003_refreshes`
 
+Code Quality
+------------
+
+* To run all code quality metrics: `rake quality`
+* There are lots of different tests you can run individually: `rake quality:reek`, `rake quality:flog`, `rake quality:flay`, `rake quality:rails_best_practices`
+
 Useful Things
 -------------
 
