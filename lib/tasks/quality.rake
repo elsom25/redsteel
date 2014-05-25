@@ -13,11 +13,11 @@ namespace :quality do
 
   desc 'run reek and find code smells'
   task :reek do
-    message :info, 'Running reek and find code smells'
+    message :info, 'Running reek and find code smells `rake quality:reek`'
     Rake::Task['reek'].invoke
   end
 
-  desc 'run rails_best_practices and inform about found issues'
+  desc 'run rails_best_practices and inform about found issues `rake quality:rails_best_practices`'
   task :rails_best_practices do
     message :info, 'Running rails_best_practices and inform about found issues'
     app_root = Rake.application.original_dir
@@ -40,7 +40,7 @@ namespace :quality do
 
     desc 'Analyze total code complexity with flog'
     task :total do
-      message :info, 'Running flog total complexity'
+      message :info, 'Running flog total complexity `rake quality:flog`'
       threshold = 1000
       flog = FlogCLI.new options
       flog.flog dirs
@@ -81,7 +81,7 @@ namespace :quality do
 
   desc 'run flay and analyze code for structural similarities'
   task :flay do
-    message :info, 'Running flay and and analyze code for structural similarities'
+    message :info, 'Running flay and and analyze code for structural similarities `rake quality:flay`'
     output = `flay #{FileList['lib/**/*.rb', 'app/**/*.rb'].join(' ')}`
     message :error, "Error #{$?}: #{output}" unless $? == 0
     message :info, output
