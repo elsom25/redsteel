@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :twitter, :gplus]
+         :omniauthable, omniauth_providers: [:facebook, :twitter]
   has_many :linked_omniauths
   enum role: [:user, :admin] # position 0 is the default
 
@@ -38,25 +38,7 @@ class User < ActiveRecord::Base
     address_array.join(', ') if address_array.present?
   end
 
-  def update_address(address)
-    self.update_address_fields_from_address(address)
-    self.save
-  end
-
-  def update_address!(address)
-    self.update_address_fields_from_address(address)
-    self.save!
-  end
-
   def to_s
     full_name || email
-  end
-
-protected
-
-  def update_address_fields_from_address(address)
-    self.locality = address.locality
-    self.postal_code = address.postal_code
-    self.country_name = address.country_name
   end
 end
