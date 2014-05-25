@@ -1,31 +1,36 @@
-h2
-  | Edit #{resource_name.to_s.humanize}
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
-  p
-    = f.label :name
-    br/
-    = f.text_field :name
-  div
-    = f.label :email
-    br/
-    = f.email_field :email
-  div
-    = f.label :password
-    i (leave blank if you don't want to change it)
-    br/
-    = f.password_field :password, :autocomplete => "off"
-  div
-    = f.label :password_confirmation
-    br/
-    = f.password_field :password_confirmation
-  div
-    = f.label :current_password
-    i (we need your current password to confirm your changes)
-    br/
-    = f.password_field :current_password
-  div= f.submit "Update"
-h3 Cancel my account
-p
-  | Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
-= link_to "Back", :back
+section.profile
+  header
+    h1 Profile Information
+
+  = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, role: 'form' } do |f|
+    = devise_error_messages!
+    = f.input :given_name
+    = f.input :family_name
+    = f.input :email
+    = f.input :gender, collection: User.gender_options
+
+    fieldset
+      legend Address
+
+      = f.input :street_address, label: false, placeholder: 'Street Address'
+      = f.input :locality, label: false, placeholder: 'City'
+      = f.input :postal_code, label: false, placeholder: 'Postal Code'
+      = f.input :country_name, label: false, placeholder: 'Country'
+
+    fieldset
+      legend Password
+      i
+        | (leave blank if you don't want to change it)
+
+      = f.input :password, autocomplete: 'off'
+      = f.input :password_confirmation, autocomplete: 'off'
+
+    i
+      | (we need your current password to confirm changes)
+    = f.input :current_password
+    = f.submit 'Update', class: 'button'
+
+section.cancel
+  h2 Cancel my account
+  p Unhappy? #{link_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete}.
+  = link_to 'Back', :back

@@ -4,7 +4,7 @@
 //
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "foundation/_functions";
+@import 'foundation/_functions';
 
 //
 // Global
@@ -22,24 +22,37 @@
 
 $body-font-color: $font-color;
 $body-font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+$body-font-weight: 300;
 
 $header-font-color: $font-color;
-$header-font-family: join('Viga', $body-font-family);
+$header-font-family: join('Roboto', $body-font-family);
+$header-font-weight: 300;
 
 //
 // TOP BAR
 
 // Background color for the top bar
-$topbar-bg-color: $primary-color;
+$topbar-bg-color: transparent; //#333;
 
 // Height and margin
-$topbar-height: 45px*1.5; //45px;
+$topbar-height: 45px*2; //45px;
 
 // Controlling the styles for the title in the top bar
 $topbar-title-font-size: rem-calc(19); //rem-calc(17);
 
-// Set the link colors and styles for top-level nav
+// Style the top bar dropdown elements
+$topbar-dropdown-bg: $topbar-bg-color; //#333;
+$topbar-dropdown-link-bg: $topbar-bg-color; //#333;
 $topbar-link-weight: 300; //normal;
 $topbar-link-font-size: rem-calc(15); //rem-calc(13);
-$topbar-link-hover-lightness: -6%; //-10%; // Darken by 10%
-$topbar-link-bg-hover: scale-color($primary-color, $lightness: $primary-color-adjust); //#272727;
+$topbar-link-bg-hover: $topbar-bg-color; //#272727;
+$topbar-link-bg-active: $topbar-bg-color; //$primary-color;
+$topbar-link-bg-active-hover: $topbar-bg-color; //darken($primary-color, 5%);
+$topbar-dropdown-label-bg: $topbar-bg-color; //#333;
+
+$topbar-menu-link-color-toggled: #fff; //#888;
+$topbar-menu-icon-color-toggled: #fff; //#888;
+
+// Divider Styles
+$topbar-divider-border-bottom: none; //solid 1px lighten($topbar-bg-color, 10%);
+$topbar-divider-border-top: none; //solid 1px darken($topbar-bg-color, 10%);

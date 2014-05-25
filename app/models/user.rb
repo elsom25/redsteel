@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
   end
 
   def full_address
-    return unless [street_address, locality, postal_code, country_name].any?(&:present?)
-    [street_address, locality, postal_code, country_name].compact.join(', ')
+    address_array = [street_address, locality, postal_code, country_name].compact
+    address_array.join(', ') if address_array.present?
   end
 
   def update_address!(address)
