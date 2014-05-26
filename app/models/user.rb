@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :twitter]
-  has_many :linked_omniauths
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
   enum role: [:user, :admin] # position 0 is the default
 
@@ -14,22 +13,9 @@ class User < ActiveRecord::Base
       [MASCULINE, FEMININE, OTHER]
     end
 
-    # linked_omniauths
-    def find_or_create_by_omniauth(auth, extra={})
-      user = LinkedOmniauth.where(provider: auth.provider, uid: auth.uid).first.try(:owner) ||
-        User.create(extra.merge(linked_omniauths: [LinkedOmniauth.new(provider: auth.provider, uid: auth.uid, data: auth)]))
-
-      if user && !user.is_a?(User)
-        User.new.tap{ |u| u.errors.add(:account, 'already linked elsewhere.') }
-      else
-        user
-      end
-    end
-
-    # authentications
-    def create_from_omniauth(params)
+    def create_from_omniauth(data)
       attributes = {
-        email: params['info']['email'],
+           email: data['info']['email'],
         password: Devise.friendly_token
       }
       create(attributes)
