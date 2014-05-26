@@ -4,10 +4,9 @@ class AddressGetter
   def initialize(search)
     @search = search
     @results = {}
+    return unless addresses.all?{ |x| feq(x, addresses.first) }
 
-    if addresses.all?{ |x| feq(x, addresses.first) }
-      @results = addresses.first || {}
-    end
+    @results = addresses.first || {}
   end
 
   def address
@@ -34,8 +33,8 @@ protected
     raw.map do |r|
       component = r.data['address_components']
       {
-        locality: component.find{ |c| c['types'].include?('locality') }.try(:[], 'long_name'),
-        region: component.find{ |c| c['types'].include?('administrative_area_level_1') }.try(:[], 'long_name'),
+            locality: component.find{ |c| c['types'].include?('locality') }.try(:[], 'long_name'),
+              region: component.find{ |c| c['types'].include?('administrative_area_level_1') }.try(:[], 'long_name'),
         country_name: component.find{ |c| c['types'].include?('country') }.try(:[], 'long_name')
       }
     end

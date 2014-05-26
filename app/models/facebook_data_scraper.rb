@@ -1,5 +1,4 @@
 class FacebookDataScraper < DataScraper
-
   def update_user
     set_location
     # set_date_of_birth

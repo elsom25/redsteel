@@ -21,16 +21,6 @@ ActiveRecord::Schema.define(version: 20140525184252) do
 
   add_index "authentication_providers", ["name"], name: "index_name_on_authentication_providers"
 
-  create_table "linked_omniauths", force: true do |t|
-    t.integer "user_id",  null: false
-    t.string  "uid",      null: false
-    t.string  "provider", null: false
-    t.string  "nickname"
-    t.text    "data"
-  end
-
-  add_index "linked_omniauths", ["provider", "uid"], name: "index_linked_omniauths_on_provider_and_uid", unique: true
-
   create_table "user_authentications", force: true do |t|
     t.integer  "user_id"
     t.integer  "authentication_provider_id"

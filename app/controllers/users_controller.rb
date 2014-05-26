@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    link_provider = params[:link_provider]
+    return redirect_to user_omniauth_authorize_url(link_provider), status: 303 if link_provider.present?
+
     if @user.update_attributes(secure_params)
       redirect_to users_path, notice: 'User updated.'
     else
