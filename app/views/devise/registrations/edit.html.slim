@@ -30,6 +30,11 @@ section.profile
     = f.input :current_password
     = f.submit 'Update', class: 'button'
 
+section.social
+  header
+    h1 Link Social Accounts
+  = render 'link_social_account', object: resource
+
 section.cancel
   h2 Cancel my account
   p Unhappy? #{link_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete}.

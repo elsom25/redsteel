@@ -80,6 +80,7 @@ GEM
     compass-rails (1.1.7)
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
+    connection_pool (2.0.0)
     coolline (0.4.3)
     countries (0.9.3)
       currencies (~> 0.4.2)
@@ -97,6 +98,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     diffy (3.0.4)
+    domp (0.0.7)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -110,6 +112,8 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
     flay (2.4.0)
       ruby_parser (~> 3.0)
@@ -124,6 +128,7 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     fssm (0.2.10)
+    geocoder (1.2.1)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -142,6 +147,10 @@ GEM
       minitest (>= 3.0)
     guard-rails (0.5.0)
       guard (>= 2.0.0)
+    guard-sidekiq (0.0.11)
+      guard (>= 1.1)
+      sidekiq
+    hashie (2.1.1)
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
@@ -152,6 +161,7 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.8.1)
+    jwt (1.0.0)
     listen (2.7.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -172,6 +182,31 @@ GEM
       minitest (~> 5.0)
       rails (~> 4.1.0.rc2)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    oauth (0.4.7)
+    oauth2 (0.9.4)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
+    omniauth (1.2.1)
+      hashie (>= 1.2, < 3)
+      rack (~> 1.0)
+    omniauth-facebook (1.6.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.1.2)
+      faraday (>= 0.8, < 0.10)
+      multi_json (~> 1.3)
+      oauth2 (~> 0.9.3)
+      omniauth (~> 1.2)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -240,6 +275,9 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.4)
       ffi (>= 0.5.0)
+    redis (3.0.7)
+    redis-namespace (1.4.1)
+      redis (~> 3.0.4)
     reek (1.3.7)
       rainbow
       ruby2ruby (~> 2.0.8)
@@ -259,6 +297,12 @@ GEM
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
     sexp_processor (4.4.3)
+    sidekiq (3.1.2)
+      celluloid (>= 0.15.2)
+      connection_pool (>= 2.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -319,20 +363,27 @@ DEPENDENCIES
   compass-rails (~> 1.1.7)
   country_select
   devise
+  domp
   dotenv-rails (~> 0.10)
   factory_girl_rails (~> 4.0)
   flay
   flog
   font-awesome-rails
   foundation-rails (~> 5.2)
+  geocoder
+  guard
   guard-bundler
   guard-minitest
   guard-rails
+  guard-sidekiq
   jazz_hands!
   jquery-rails
   jquery-turbolinks
   minitest-reporters
   minitest-spec-rails
+  omniauth
+  omniauth-facebook
+  omniauth-twitter
   pg
   pry-byebug
   pundit
@@ -342,6 +393,7 @@ DEPENDENCIES
   rails_best_practices
   reek
   sass-rails
+  sidekiq
   simple_form
   slim-rails
   spring

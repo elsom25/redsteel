@@ -2,9 +2,13 @@ guard :bundler do
   watch('Gemfile')
 end
 
-guard 'rails' do
+guard :rails do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
+end
+
+guard :sidekiq, environment: :development do
+  watch(%r{^workers/(.+)\.rb$})
 end
 
 guard :minitest do
