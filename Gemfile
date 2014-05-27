@@ -8,6 +8,9 @@ gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 
 # Server
 gem 'thin'                                    # Nicer server
+gem 'sidekiq'                                 # Concurreny jobs
+
+# User
 gem 'devise'                                  # User and Account Management
 gem 'domp'                                    # Devise OmniAuth Generator
 gem 'omniauth'
@@ -15,6 +18,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'geocoder'                                # Determines address via geocodes & vis-versa
 gem 'pundit'                                  # User and Role Authorization
+
+# Extras
 gem 'attr_extras'                             # Simplified PORO's
 gem 'simple_form'                             # A nice form DSL
 gem 'country_select'                          # Provides a Country select for simple_form
@@ -52,13 +57,16 @@ group :development, :test do
   gem 'capybara'                              # Integration Tests
   gem 'capybara_minitest_spec'                # Capybara integration w/ MiniTest
   gem 'poltergeist'                           # Capybara headless JS driver
+
   gem 'factory_girl_rails', '~> 4.0'          # Testing factories
 
   gem 'quiet_assets'                          # Reduces console output
   gem 'dotenv-rails',       '~> 0.10'         # Nicer ENV variable handling
 
+  gem 'guard'                                 # Handles project changes while app running
   gem 'guard-bundler'
   gem 'guard-rails'
+  gem 'guard-sidekiq'
   gem 'guard-minitest'
 
   # TEMP: Handle version issues;

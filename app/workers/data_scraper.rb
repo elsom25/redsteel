@@ -1,10 +1,11 @@
 class DataScraper
   include Sidekiq::Worker
-
   vattr_initialize :user, :data
 
-  def self.perform(user, data)
-    new(user, data).update_user!
+  class << self
+    def perform(user, data)
+      new(user, data).update_user!
+    end
   end
 
   def update_user
