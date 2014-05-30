@@ -15,15 +15,19 @@ Setup (OSX)
 5. Setup your environment variables:
   - create a file in the application root: `.env`
     - The format of the file is `Key=Value`, with a newline separating each key.
+    - All required keys are below. If a correpsonding value is not specified, talk to Jesse to get the value.
   - Cookie Secret:
     - Key = `SECRET_KEY_BASE`
     - Value = result of `rake secret`
-  - Mandrill Username:
+  - Mandrill:
     - Key = `MANDRILL_USERNAME`
-    - Value = NOT USED YET
-  - Mandrill API Key:
     - Key = `MANDRILL_APIKEY`
-    - Value = NOT USED YET
+  - Facebook:
+    - Key = `FACEBOOK_ID`
+    - Key = `FACEBOOK_SECRET`
+  - Twitter:
+    - Key = `TWITTER_ID`
+    - Key = `TWITTER_SECRET`
 
 Run
 ---
