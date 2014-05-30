@@ -9,6 +9,7 @@ gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 # Server
 gem 'thin'                                    # Nicer server
 gem 'sidekiq'                                 # Concurreny jobs
+gem 'sinatra', require: nil                   # Required for Sidekiq::Web
 
 # User
 gem 'devise'                                  # User and Account Management

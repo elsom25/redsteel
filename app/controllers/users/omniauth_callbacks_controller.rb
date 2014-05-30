@@ -22,9 +22,11 @@ protected
   end
 
   def user
-    @user ||= current_user ||
-              User.where(email: auth['info']['email']).first ||
-              User.create_from_omniauth(auth)
+    @user ||= (current_user || find_or_create_user)
+  end
+
+  def find_or_create_user
+    User.where(email: auth['info']['email']).first || User.create_from_omniauth(auth)
   end
 
   def sign_in_with_existing_authentication(authentication)

@@ -1,7 +1,7 @@
 ul
-  - User.omniauth_providers.each do |provider|
+  - AuthenticationProvider.all.each do |provider|
     li class="#{provider}"
-      - if object.linked_omniauths.where(provider: provider).count < 1
+      - if object.authentications.where(authentication_provider: provider).count.zero?
         = simple_form_for object do
           button[type='submit' name='link_provider' value=provider.to_s] Link #{provider.to_s.humanize}
       - else

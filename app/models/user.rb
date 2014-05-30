@@ -14,11 +14,10 @@ class User < ActiveRecord::Base
     end
 
     def create_from_omniauth(data)
-      attributes = {
+      create(
            email: data['info']['email'],
         password: Devise.friendly_token
-      }
-      create(attributes)
+      )
     end
   end
 

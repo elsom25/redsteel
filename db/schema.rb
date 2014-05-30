@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20140525184252) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "role",                   default: 0,  null: false
     t.string   "given_name"
     t.string   "family_name"
+    t.integer  "role",                   default: 0,  null: false
     t.string   "gender"
     t.string   "street_address"
     t.string   "locality"
