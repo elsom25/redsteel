@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525184252) do
+ActiveRecord::Schema.define(version: 20140531001136) do
 
   create_table "authentication_providers", force: true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140525184252) do
     t.string   "locality"
     t.string   "postal_code"
     t.string   "country_name"
+    t.string   "region"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
