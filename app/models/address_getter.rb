@@ -1,6 +1,4 @@
 class AddressGetter
-  attr_private :results, :search, :equalizer
-
   def initialize(search, equalizer=FuzzyEqual)
     @search = search
     @equalizer = equalizer
@@ -29,18 +27,23 @@ protected
     @equalizer.equal?(a, b)
   end
 
-  def raw
-    @raw ||= Geocoder.search(@search)
+  def geocoder_raw
+    @geocoder_raw ||= Geocoder.search(@search)
   end
 
   def addresses
-    raw.map do |r|
-      component = r.data['address_components']
+    geocoder_raw.map do |raw|
+      component = raw.data['address_components']
+      locality = component.find{ |c| c['types'].include?('locality') }.try(:[], 'long_name')
       {
-            locality: component.find{ |c| c['types'].include?('locality') }.try(:[], 'long_name'),
-              region: component.find{ |c| c['types'].include?('administrative_area_level_1') }.try(:[], 'long_name'),
-        country_name: component.find{ |c| c['types'].include?('country') }.try(:[], 'long_name')
+            locality: component_type(component, 'locality'),
+              region: component_type(component, 'administrative_area_level_1'),
+        country_name: component_type(component, 'country')
       }
     end
+  end
+
+  def component_type(component, type)
+    component.find{ |c| c['types'].include?(type) }.try(:[], 'long_name')
   end
 end
