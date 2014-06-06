@@ -4,7 +4,7 @@ class AddressGetter
   def initialize(search)
     @search = search
     @results = {}
-    return unless addresses.all?{ |x| feq(x, addresses.first) }
+    return unless addresses.all?{ |x| fuzzy_equal(x, addresses.first) }
 
     @results = addresses.first || {}
   end
@@ -19,7 +19,7 @@ class AddressGetter
 
 protected
 
-  def feq(a, b)
+  def fuzzy_equal(a, b)
     a.to_h
     b.to_h
     a.keys.all?{ |k| a[k] == b[k] || b[k].nil? || a[k].nil? }
