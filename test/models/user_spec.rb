@@ -43,7 +43,7 @@ describe User do
   end
 
   describe '#full_name' do
-    it 'should be nil with no name' do
+    it 'should be nil without given or family name' do
       subject.full_name.must_be_nil
     end
 
