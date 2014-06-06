@@ -32,9 +32,9 @@ protected
 
   def address
     facebook_location_id = raw_info['location']['id'].to_i
-    facebook_location = JSON.parse(open("https://graph.facebook.com/#{facebook_location_id}").read)
-    latitude = facebook_location['location']['latitude']
-    longitude = facebook_location['location']['longitude']
+    facebook_location = JSON.parse(open("https://graph.facebook.com/#{facebook_location_id}").read)['location']
+    latitude = facebook_location['latitude']
+    longitude = facebook_location['longitude']
 
     @address ||= AddressGetter.new("#{latitude}, #{longitude}").address
   end

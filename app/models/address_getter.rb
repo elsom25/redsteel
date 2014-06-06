@@ -19,12 +19,13 @@ protected
   end
 
   def get_results
-    return {} unless addresses.all?{ |address| equal?(address, addresses.first) }
-    addresses.first || {}
+    root_address = addresses.first
+    return {} unless addresses.all?{ |address| equal?(address, root_address) }
+    root_address || {}
   end
 
-  def equal?(a, b)
-    @equalizer.equal?(a, b)
+  def equal?(left, right)
+    @equalizer.equal?(left, right)
   end
 
   def geocoder_raw
@@ -33,17 +34,16 @@ protected
 
   def addresses
     geocoder_raw.map do |raw|
-      component = raw.data['address_components']
-      locality = component.find{ |c| c['types'].include?('locality') }.try(:[], 'long_name')
+      @component = raw.data['address_components']
       {
-            locality: component_type(component, 'locality'),
-              region: component_type(component, 'administrative_area_level_1'),
-        country_name: component_type(component, 'country')
+            locality: component_type('locality'),
+              region: component_type('administrative_area_level_1'),
+        country_name: component_type('country')
       }
     end
   end
 
-  def component_type(component, type)
-    component.find{ |c| c['types'].include?(type) }.try(:[], 'long_name')
+  def component_type(type)
+    @component.find{ |component| component['types'].include?(type) }.try(:[], 'long_name')
   end
 end
