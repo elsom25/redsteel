@@ -10,6 +10,8 @@ require 'capybara/rails' # integration tests
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 
+require 'mocha/mini_test'
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in test/support/ and its subdirectories.
 Dir[Rails.root.join('test/support/**/*.rb')].each{ |f| require f }

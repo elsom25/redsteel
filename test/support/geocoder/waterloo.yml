@@ -1,0 +1,287 @@
+---
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Waterloo
+      short_name: Waterloo
+      types:
+      - locality
+      - political
+    - long_name: Waterloo Regional Municipality
+      short_name: Waterloo Regional Municipality
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Waterloo, ON, Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 43.5317799
+          lng: -80.46729289999999
+        southwest:
+          lat: 43.4326571
+          lng: -80.6261459
+      location:
+        lat: 43.4642578
+        lng: -80.5204096
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 43.5317799
+          lng: -80.46729289999999
+        southwest:
+          lat: 43.4326571
+          lng: -80.6261459
+    types:
+    - locality
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Waterloo
+      short_name: Waterloo
+      types:
+      - locality
+      - political
+    - long_name: Walloon Brabant
+      short_name: BW
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Walloon Region
+      short_name: Walloon Region
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Belgium
+      short_name: BE
+      types:
+      - country
+      - political
+    formatted_address: Waterloo, Belgium
+    geometry:
+      bounds:
+        northeast:
+          lat: 50.7359101
+          lng: 4.44118
+        southwest:
+          lat: 50.6709
+          lng: 4.3548601
+      location:
+        lat: 50.71469
+        lng: 4.3991
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 50.7359101
+          lng: 4.44118
+        southwest:
+          lat: 50.6709
+          lng: 4.3548601
+    types:
+    - locality
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Waterloo
+      short_name: Waterloo
+      types:
+      - locality
+      - political
+    - long_name: Black Hawk County
+      short_name: Black Hawk County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Iowa
+      short_name: IA
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: United States
+      short_name: US
+      types:
+      - country
+      - political
+    formatted_address: Waterloo, IA, USA
+    geometry:
+      bounds:
+        northeast:
+          lat: 42.57046589999999
+          lng: -92.24888
+        southwest:
+          lat: 42.4221841
+          lng: -92.4371199
+      location:
+        lat: 42.492786
+        lng: -92.34257749999999
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 42.57046589999999
+          lng: -92.24888
+        southwest:
+          lat: 42.4221841
+          lng: -92.4371199
+    types:
+    - locality
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Waterloo
+      short_name: Waterloo
+      types:
+      - locality
+      - political
+    - long_name: Seneca County
+      short_name: Seneca County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: New York
+      short_name: NY
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: United States
+      short_name: US
+      types:
+      - country
+      - political
+    - long_name: '13165'
+      short_name: '13165'
+      types:
+      - postal_code
+    formatted_address: Waterloo, NY 13165, USA
+    geometry:
+      bounds:
+        northeast:
+          lat: 42.91783789999999
+          lng: -76.8417999
+        southwest:
+          lat: 42.892523
+          lng: -76.8769361
+      location:
+        lat: 42.9047884
+        lng: -76.8627367
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 42.91783789999999
+          lng: -76.8417999
+        southwest:
+          lat: 42.892523
+          lng: -76.8769361
+    types:
+    - locality
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Waterloo
+      short_name: Waterloo
+      types:
+      - locality
+      - political
+    - long_name: Monroe County
+      short_name: Monroe County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Illinois
+      short_name: IL
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: United States
+      short_name: US
+      types:
+      - country
+      - political
+    formatted_address: Waterloo, IL, USA
+    geometry:
+      bounds:
+        northeast:
+          lat: 38.379286
+          lng: -90.1190451
+        southwest:
+          lat: 38.2999219
+          lng: -90.178299
+      location:
+        lat: 38.3358857
+        lng: -90.14983409999999
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 38.379286
+          lng: -90.1190451
+        southwest:
+          lat: 38.2999219
+          lng: -90.178299
+    types:
+    - locality
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Waterloo
+      short_name: Waterloo
+      types:
+      - locality
+      - political
+    - long_name: Jefferson County
+      short_name: Jefferson County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Wisconsin
+      short_name: WI
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: United States
+      short_name: US
+      types:
+      - country
+      - political
+    formatted_address: Waterloo, WI, USA
+    geometry:
+      bounds:
+        northeast:
+          lat: 43.198116
+          lng: -88.970208
+        southwest:
+          lat: 43.16871709999999
+          lng: -89.00985380000002
+      location:
+        lat: 43.1838843
+        lng: -88.9884421
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 43.198116
+          lng: -88.970208
+        southwest:
+          lat: 43.16871709999999
+          lng: -89.00985380000002
+    types:
+    - locality
+    - political
+  cache_hit:

@@ -59,6 +59,7 @@ group :development, :test do
   gem 'capybara_minitest_spec'                # Capybara integration w/ MiniTest
   gem 'poltergeist'                           # Capybara headless JS driver
 
+  gem 'mocha'                                 # Stubbing library
   gem 'factory_girl_rails', '~> 4.0'          # Testing factories
 
   gem 'quiet_assets'                          # Reduces console output

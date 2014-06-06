@@ -1,12 +1,9 @@
 class AddressGetter
-  attr_private :results, :search
+  attr_private :results, :search, :equalizer
 
-  def initialize(search)
+  def initialize(search, equalizer=FuzzyEqual)
     @search = search
-    @results = {}
-    return unless addresses.all?{ |x| fuzzy_equal(x, addresses.first) }
-
-    @results = addresses.first || {}
+    @equalizer = equalizer
   end
 
   def address
@@ -19,14 +16,21 @@ class AddressGetter
 
 protected
 
-  def fuzzy_equal(a, b)
-    a.to_h
-    b.to_h
-    a.keys.all?{ |k| a[k] == b[k] || b[k].nil? || a[k].nil? }
+  def results
+    @results ||= get_results
+  end
+
+  def get_results
+    return {} unless addresses.all?{ |address| equal?(address, addresses.first) }
+    addresses.first || {}
+  end
+
+  def equal?(a, b)
+    @equalizer.equal?(a, b)
   end
 
   def raw
-    @raw ||= Geocoder.search(search)
+    @raw ||= Geocoder.search(@search)
   end
 
   def addresses
