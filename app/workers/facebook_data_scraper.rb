@@ -36,7 +36,8 @@ protected
     latitude = facebook_location['latitude']
     longitude = facebook_location['longitude']
 
-    @address ||= AddressGetter.new("#{latitude}, #{longitude}").address
+    @address = AddressGetter.new("#{latitude}, #{longitude}").address if @address.blank?
+    @address
   end
 
   # def set_date_of_birth

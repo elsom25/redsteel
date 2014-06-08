@@ -17,4 +17,24 @@ describe Address do
   it 'should have the country it was initialized with' do
     subject.country_name.must_equal country_name
   end
+
+  describe '#blank?' do
+    it{ nil.must_be :blank? }
+    it{ subject.wont_be :blank? }
+
+    describe 'all fields are nil' do
+      subject{ Address.new(nil, nil, nil) }
+      it{ subject.must_be :blank? }
+    end
+  end
+
+  describe '#present?' do
+    it{ nil.wont_be :present? }
+    it{ subject.must_be :present? }
+
+    describe 'all fields are nil' do
+      subject{ Address.new(nil, nil, nil) }
+      it{ subject.wont_be :present? }
+    end
+  end
 end

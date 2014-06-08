@@ -21,7 +21,7 @@ protected
 
   def set_location
     [:locality, :region, :country_name].each do |field|
-      @user.send("#{field}=", address.send(field)) unless @user.send(field)
+      @user.send("#{field}=", address.send(field)) unless @user.send(field).present?
     end
   end
 
