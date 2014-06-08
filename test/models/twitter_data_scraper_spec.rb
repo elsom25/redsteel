@@ -3,7 +3,7 @@ require 'test_helper'
 describe TwitterDataScraper do
   subject{ FacebookDataScraper.new(user, data) }
   let(:user){ build :user }
-  let(:data){
+  let(:data) do
     {
       'extra' => {
         'raw_info' => {
@@ -12,10 +12,10 @@ describe TwitterDataScraper do
           'location' => 'Waterloo, Ontario',
           'description' => "Boltmade | Imprint Director | uWaterloo Student | You have enemies? Good. That means you've stood up for something, sometime in your life.",
           'url' => nil
-        },
+        }
       }
     }
-  }
+  end
   let(:address){ Address.new('Waterloo', 'Ontario', 'Canada') }
 
   before{ subject.stubs(:address).returns(address) }
@@ -50,7 +50,7 @@ describe TwitterDataScraper do
     end
 
     describe 'address is nil' do
-      let(:address) { Address.new(nil, nil, nil) }
+      let(:address){ Address.new(nil, nil, nil) }
 
       it 'should not set a location' do
         subject.update_user

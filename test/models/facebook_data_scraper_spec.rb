@@ -3,7 +3,7 @@ require 'test_helper'
 describe FacebookDataScraper do
   subject{ FacebookDataScraper.new(user, data) }
   let(:user){ build :user }
-  let(:data){
+  let(:data) do
     {
       'extra' => {
         'raw_info' => {
@@ -16,7 +16,7 @@ describe FacebookDataScraper do
         }
       }
     }
-  }
+  end
   let(:address){ Address.new('Waterloo', 'Ontario', 'Canada') }
 
   before{ subject.stubs(:address).returns(address) }
@@ -62,7 +62,7 @@ describe FacebookDataScraper do
     end
 
     describe 'address is nil' do
-      let(:address) { Address.new(nil, nil, nil) }
+      let(:address){ Address.new(nil, nil, nil) }
 
       it 'should not set a location' do
         subject.update_user
