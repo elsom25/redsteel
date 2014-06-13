@@ -23,15 +23,7 @@ protected
     return {} unless addresses.all?{ |address| equal?(address, root_address) }
     root_address || {}
   end
-
-  def equal?(left, right)
-    @equalizer.equal?(left, right)
-  end
-
-  def geocoder_raw
-    @geocoder_raw ||= Geocoder.search(@search)
-  end
-
+  
   def addresses
     geocoder_raw.map do |raw|
       @component = raw.data['address_components']
@@ -42,8 +34,16 @@ protected
       }
     end
   end
+  
+  def geocoder_raw
+    @geocoder_raw ||= Geocoder.search(@search)
+  end
 
   def component_type(type)
     @component.find{ |component| component['types'].include?(type) }.try(:[], 'long_name')
+  end
+
+  def equal?(left, right)
+    @equalizer.equal?(left, right)
   end
 end
