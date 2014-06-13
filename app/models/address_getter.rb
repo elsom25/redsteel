@@ -23,7 +23,7 @@ protected
     return {} unless addresses.all?{ |address| equal?(address, root_address) }
     root_address || {}
   end
-  
+
   def addresses
     geocoder_raw.map do |raw|
       @component = raw.data['address_components']
@@ -34,7 +34,7 @@ protected
       }
     end
   end
-  
+
   def geocoder_raw
     @geocoder_raw ||= Geocoder.search(@search)
   end
