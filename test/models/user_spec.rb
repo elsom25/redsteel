@@ -43,7 +43,7 @@ describe User do
   end
 
   describe '#full_name' do
-    it 'should be nil with no name' do
+    it 'should be nil without given or family name' do
       subject.full_name.must_be_nil
     end
 
@@ -86,21 +86,6 @@ describe User do
       subject.full_address.must_be :include?, 'street_address'
       subject.full_address.must_be :include?, 'locality'
       subject.full_address.must_be :include?, 'postal_code'
-    end
-  end
-
-  describe '#update_address!' do
-    it 'should update the users address fields' do
-      subject.locality.must_be_nil
-      subject.postal_code.must_be_nil
-      subject.country_name.must_be_nil
-
-      address = Address.new 'locality', 'postal_code', 'country_name'
-      subject.update_address! address
-
-      subject.locality.must_equal 'locality'
-      subject.postal_code.must_equal 'postal_code'
-      subject.country_name.must_equal 'country_name'
     end
   end
 end

@@ -1,0 +1,312 @@
+---
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: '25'
+      short_name: '25'
+      types:
+      - street_number
+    - long_name: Eramosa Road
+      short_name: Eramosa Rd
+      types:
+      - route
+    - long_name: Guelph
+      short_name: Guelph
+      types:
+      - locality
+      - political
+    - long_name: Wellington County
+      short_name: Wellington County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    - long_name: N1E 2L3
+      short_name: N1E 2L3
+      types:
+      - postal_code
+    formatted_address: 25 Eramosa Road, Guelph, ON N1E 2L3, Canada
+    geometry:
+      location:
+        lat: 43.5499966
+        lng: -80.2501644
+      location_type: ROOFTOP
+      viewport:
+        northeast:
+          lat: 43.5513455802915
+          lng: -80.24881541970849
+        southwest:
+          lat: 43.5486476197085
+          lng: -80.2515133802915
+    types:
+    - street_address
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: N1E 2L4
+      short_name: N1E 2L4
+      types:
+      - postal_code
+    - long_name: Guelph
+      short_name: Guelph
+      types:
+      - locality
+      - political
+    - long_name: Wellington County
+      short_name: Wellington County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Guelph, ON N1E 2L4, Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 43.55105289999999
+          lng: -80.24964729999999
+        southwest:
+          lat: 43.5496567
+          lng: -80.2503734
+      location:
+        lat: 43.5502849
+        lng: -80.2499921
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 43.5517037802915
+          lng: -80.2486613697085
+        southwest:
+          lat: 43.5490058197085
+          lng: -80.2513593302915
+    types:
+    - postal_code
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: N1E
+      short_name: N1E
+      types:
+      - postal_code_prefix
+      - postal_code
+    - long_name: Guelph
+      short_name: Guelph
+      types:
+      - locality
+      - political
+    - long_name: Wellington County
+      short_name: Wellington County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Guelph, ON N1E, Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 43.58707
+          lng: -80.204425
+        southwest:
+          lat: 43.5401359
+          lng: -80.2754471
+      location:
+        lat: 43.5690978
+        lng: -80.2377078
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 43.58707
+          lng: -80.204425
+        southwest:
+          lat: 43.5401359
+          lng: -80.2754471
+    types:
+    - postal_code_prefix
+    - postal_code
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Guelph
+      short_name: Guelph
+      types:
+      - locality
+      - political
+    - long_name: Wellington County
+      short_name: Wellington County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Guelph, ON, Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 43.595021
+          lng: -80.153391
+        southwest:
+          lat: 43.473845
+          lng: -80.3269451
+      location:
+        lat: 43.5448048
+        lng: -80.24816659999999
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 43.595021
+          lng: -80.153391
+        southwest:
+          lat: 43.473845
+          lng: -80.3269451
+    types:
+    - locality
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Wellington County
+      short_name: Wellington County
+      types:
+      - administrative_area_level_2
+      - political
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Wellington County, ON, Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 44.0259739
+          lng: -79.969043
+        southwest:
+          lat: 43.3872129
+          lng: -80.99170989999999
+      location:
+        lat: 43.7803323
+        lng: -80.54384499999999
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 44.0259739
+          lng: -79.969043
+        southwest:
+          lat: 43.3872129
+          lng: -80.99170989999999
+    types:
+    - administrative_area_level_2
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Ontario
+      short_name: 'ON'
+      types:
+      - administrative_area_level_1
+      - political
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Ontario, Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 56.8565279
+          lng: -74.34388229999999
+        southwest:
+          lat: 41.6801344
+          lng: -95.1562271
+      location:
+        lat: 51.253775
+        lng: -85.3232139
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 56.8565279
+          lng: -74.34388229999999
+        southwest:
+          lat: 41.6801344
+          lng: -95.155081
+    types:
+    - administrative_area_level_1
+    - political
+  cache_hit:
+- !ruby/object:Geocoder::Result::Google
+  data:
+    address_components:
+    - long_name: Canada
+      short_name: CA
+      types:
+      - country
+      - political
+    formatted_address: Canada
+    geometry:
+      bounds:
+        northeast:
+          lat: 83.115061
+          lng: -52.6194086
+        southwest:
+          lat: 41.6765559
+          lng: -141.00187
+      location:
+        lat: 56.130366
+        lng: -106.346771
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 70
+          lng: -50
+        southwest:
+          lat: 42
+          lng: -142
+    types:
+    - country
+    - political
+  cache_hit:

@@ -1,0 +1,8 @@
+ul
+  - AuthenticationProvider.all.each do |provider|
+    li class="#{provider}"
+      - if object.authentications.where(authentication_provider: provider).count.zero?
+        = simple_form_for object do
+          button[type='submit' name='link_provider' value=provider.to_s] Link #{provider.to_s.humanize}
+      - else
+        | #{provider.to_s.humanize} already linked

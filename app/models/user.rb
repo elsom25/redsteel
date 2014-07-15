@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable
-  #       :omniauthable, omniauth_providers: [:facebook, :twitter, :gplus]
+  devise :database_authenticatable, :registerable, :rememberable, :recoverable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :twitter]
+  has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
   enum role: [:user, :admin] # position 0 is the default
 
   MASCULINE = 'Masculine'.freeze
@@ -10,6 +11,13 @@ class User < ActiveRecord::Base
   class << self
     def gender_options
       [MASCULINE, FEMININE, OTHER]
+    end
+
+    def create_from_omniauth(data)
+      create(
+           email: data['info']['email'],
+        password: Devise.friendly_token
+      )
     end
   end
 
@@ -26,25 +34,7 @@ class User < ActiveRecord::Base
     address_array.join(', ') if address_array.present?
   end
 
-  def update_address(address)
-    self.update_address_fields_from_address(address)
-    self.save
-  end
-
-  def update_address!(address)
-    self.update_address_fields_from_address(address)
-    self.save!
-  end
-
   def to_s
     full_name || email
-  end
-
-protected
-
-  def update_address_fields_from_address(address)
-    self.locality = address.locality
-    self.postal_code = address.postal_code
-    self.country_name = address.country_name
   end
 end
