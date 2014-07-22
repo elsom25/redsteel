@@ -4,15 +4,15 @@ class House < ActiveRecord::Base
 
   class << self
     def users(house)
-      User.with_any_role([{ name: :owner, resource: house }, { name: :housemate, resource: house }])
+      User.with_any_role([{ name: :owner, resource: house }, { name: :resident, resource: house }])
     end
 
     def owners(house)
-      User.with_role :owner, house
+      User.with_role(:owner, house)
     end
 
-    def housemates(house)
-      User.with_role :housemate, house
+    def residents(house)
+      User.with_role(:resident, house)
     end
   end
 
@@ -24,8 +24,8 @@ class House < ActiveRecord::Base
     House.owners(self)
   end
 
-  def housemates
-    House.housemates(self)
+  def residents
+    House.residents(self)
   end
 
 protected

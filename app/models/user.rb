@@ -20,6 +20,18 @@ class User < ActiveRecord::Base
         password: Devise.friendly_token
       )
     end
+
+    def houses(user)
+      House.with_any_role([{ name: :owner, resource: user }, { name: :resident, resource: user }])
+    end
+
+    def owned_houses(user)
+      House.with_role(:owner, user)
+    end
+
+    def residences(user)
+      House.with_role(:resident, user)
+    end
   end
 
   def name
@@ -33,6 +45,18 @@ class User < ActiveRecord::Base
   def full_address
     address_array = [street_address, locality, postal_code, country_name].compact
     address_array.join(', ') if address_array.present?
+  end
+
+  def houses
+    self.class.houses(self)
+  end
+
+  def owned_houses
+    self.class.owned_houses(self)
+  end
+
+  def residences
+    self.class.residences(self)
   end
 
   def to_s
