@@ -17,22 +17,22 @@ class House < ActiveRecord::Base
   end
 
   def users
-    House.users(self)
+    self.class.users(self)
   end
 
   def owners
-    House.owners(self)
+    self.class.owners(self)
   end
 
   def residents
-    House.residents(self)
+    self.class.residents(self)
   end
 
 protected
 
   def set_names
-    self.internal_name = "H-#{Date.today.yday}-#{id.to_s.rjust(4, '0')}"
-    # self.friendly_name ||= "#{self.users.first.name}'s House" if self.users.present?
-    self.save
+    internal_name = "H-#{Date.today.yday}-#{id.to_s.rjust(4, '0')}"
+    # friendly_name ||= "#{users.first.name}'s House" if users.present?
+    save
   end
 end
