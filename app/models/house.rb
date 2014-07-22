@@ -1,5 +1,32 @@
 class House < ActiveRecord::Base
+  resourcify
   after_save :set_names
+
+  class << self
+    def users(house)
+      User.with_any_role([{ name: :owner, resource: house }, { name: :housemate, resource: house }])
+    end
+
+    def owners(house)
+      User.with_role :owner, house
+    end
+
+    def housemates(house)
+      User.with_role :housemate, house
+    end
+  end
+
+  def users
+    House.users(self)
+  end
+
+  def owners
+    House.owners(self)
+  end
+
+  def housemates
+    House.housemates(self)
+  end
 
 protected
 
