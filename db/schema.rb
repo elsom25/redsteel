@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531001136) do
+ActiveRecord::Schema.define(version: 20140722053315) do
 
   create_table "authentication_providers", force: true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20140531001136) do
   end
 
   add_index "authentication_providers", ["name"], name: "index_name_on_authentication_providers"
+
+  create_table "houses", force: true do |t|
+    t.string   "name"
+    t.string   "token",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "houses", ["token"], name: "index_houses_on_token", unique: true
 
   create_table "user_authentications", force: true do |t|
     t.integer  "user_id"
