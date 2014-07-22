@@ -73,6 +73,9 @@ SingleSpaceBeforeFirstArg:
   Exclude:
     - '**/factories/**/*'
 
+StringLiterals:
+  EnforcedStyle: single_quotes
+
 WhileUntilModifier:
   MaxLineLength: 120
 
