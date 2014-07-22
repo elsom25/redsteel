@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook, :twitter]
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
   enum role: [:user, :admin] # position 0 is the default
+  rolify
 
   MASCULINE = 'Masculine'.freeze
   FEMININE  = 'Feminine'.freeze
