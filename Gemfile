@@ -10,7 +10,6 @@ gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 gem 'thin'                                    # Nicer server
 gem 'sidekiq'                                 # Concurreny jobs
 gem 'sinatra', require: nil                   # Required for Sidekiq::Web
-gem 'duffel'                                  # Better project settings
 
 # User
 gem 'devise'                                  # User and Account Management
@@ -23,6 +22,7 @@ gem 'pundit'                                  # User and Role Authorization
 
 # Extras
 gem 'attr_extras'                             # Simplified PORO's
+gem 'duffel'                                  # Better project settings
 gem 'simple_form'                             # A nice form DSL
 gem 'country_select'                          # Provides a Country select for simple_form
 
