@@ -33,6 +33,10 @@ We are using `Ruby v2.1.2`, managed through `RVM`; `sqlite3`; and `PhantomJS`. T
     - All required keys are below. If a correpsonding value is not specified, talk to Jesse to get the value.
   - Cookie Secret:
     - Key = `SECRET_KEY_BASE`, Value = result of `rake secret`
+  - Default production admin user:
+    - Key = `ADMIN_NAME`, Value = anything you want
+    - Key = `ADMIN_EMAIL`, Value = anything you want
+    - Key = `ADMIN_PASSWORD`, Value = anything you want
   - Mandrill:
     - Key = `MANDRILL_USERNAME`
     - Key = `MANDRILL_APIKEY`

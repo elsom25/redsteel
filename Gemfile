@@ -10,6 +10,7 @@ gem 'sqlite3', group: [:development, :test]   # Dev & Test DB
 gem 'thin'                                    # Nicer server
 gem 'sidekiq'                                 # Concurreny jobs
 gem 'sinatra', require: nil                   # Required for Sidekiq::Web
+gem 'duffel'                                  # Better project settings
 
 # User
 gem 'devise'                                  # User and Account Management
@@ -42,7 +43,7 @@ gem 'coffee-rails'
 gem 'uglifier',             '>= 1.3.0'
 gem 'slim-rails'
 gem 'compass-rails',        '~> 1.1.7'
-gem 'foundation-rails',     '~> 5.2'
+gem 'foundation-rails',     '~> 5.3'
 gem 'font-awesome-rails'
 
 group :development do
