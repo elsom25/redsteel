@@ -31,8 +31,8 @@ class House < ActiveRecord::Base
 protected
 
   def set_names
-    internal_name = "H-#{Date.today.yday}-#{id.to_s.rjust(4, '0')}"
-    # friendly_name ||= "#{users.first.name}'s House" if users.present?
+    self.internal_name = "H-#{Date.today.yday}-#{id.to_s.rjust(4, '0')}"
+    # self.friendly_name ||= "#{users.first.name}'s House" if users.present?
     save
   end
 end
