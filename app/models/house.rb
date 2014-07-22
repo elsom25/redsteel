@@ -1,5 +1,6 @@
 class House < ActiveRecord::Base
   resourcify
+  # has_many :users, through: :roles, source: :resource, source_type: 'User' #TBD: This vs the other thing below
   after_save :set_names
 
   class << self
