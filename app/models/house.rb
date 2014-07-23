@@ -4,7 +4,7 @@ class House < ActiveRecord::Base
 protected
   has_many :house_roles
   has_many :house_role_owners, -> { with_all_roles(:owner) }, class_name: HouseRole.name
-  has_many :house_role_residents, -> { with_all_roles(:owner) }, class_name: HouseRole.name
+  has_many :house_role_residents, -> { with_all_roles(:resident) }, class_name: HouseRole.name
 
 public
   has_many :users, -> { uniq }, through: :house_roles
