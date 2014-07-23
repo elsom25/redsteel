@@ -5,6 +5,7 @@ class HouseRole < ActiveRecord::Base
   belongs_to :user
   belongs_to :house
 
+  # TODO Move into module or concern
   class << self
     def with_any_role(*roles)
       where("#{role_mask_column} & :role_mask > 0", role_mask: mask_for(*roles))
