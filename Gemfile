@@ -18,7 +18,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'geocoder'                                # Determines address via geocodes & vis-versa
-gem 'pundit'                                  # User and Role Authorization
+gem 'pundit'                                  # User Authorization
+gem 'role_model'                              # Roles
 
 # Extras
 gem 'attr_extras'                             # Simplified PORO's

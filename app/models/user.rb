@@ -4,6 +4,16 @@ class User < ActiveRecord::Base
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
   enum role: [:user, :admin] # position 0 is the default
 
+protected
+  has_many :house_roles
+  has_many :house_role_owners, -> { with_all_roles(:owner) }, class_name: HouseRole.name
+  has_many :house_role_residents, -> { with_all_roles(:owner) }, class_name: HouseRole.name
+
+public
+  has_many :houses, -> { uniq }, through: :house_roles
+  has_many :owned_houses, -> { uniq }, through: :house_role_owners, source: :house
+  has_many :residents, -> { uniq }, through: :house_role_residents, source: :house
+
   MASCULINE = 'Masculine'.freeze
   FEMININE  = 'Feminine'.freeze
   OTHER     = 'Other'.freeze
