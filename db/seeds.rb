@@ -4,5 +4,5 @@ puts "CREATED ADMIN USER: #{admin.email}"
 house = CreateAdminHouseService.call(admin)
 puts "CREATED ADMIN HOUSE: #{house.name}"
 
-providers = CreateAuthenticationProvdersService.call
+providers = CreateAuthenticationProvidersService.call
 puts "CREATED AUTHENTICATION PROVIDERS: #{providers.to_sentence}"
