@@ -19,7 +19,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'geocoder'                                # Determines address via geocodes & vis-versa
 gem 'pundit'                                  # User Authorization
-gem 'role_model'                              # Roles
+gem 'roleable', github: 'elsom25/roleable'    # User Roles
 
 # Extras
 gem 'attr_extras'                             # Simplified PORO's
