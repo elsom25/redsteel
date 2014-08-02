@@ -44,8 +44,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    acts_as_roleable (0.3.2)
+    acts_as_roleable (0.4.0)
       role_model
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     ansi (1.4.3)
     arel (5.0.1.20140414130214)
     attr_extras (3.0.0)
@@ -390,7 +393,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_roleable
+  acts_as_roleable (~> 0.4)
+  annotate (>= 2.6.0)
   attr_extras
   better_errors
   binding_of_caller
