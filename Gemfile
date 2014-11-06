@@ -18,13 +18,15 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'geocoder'                                # Determines address via geocodes & vis-versa
-gem 'pundit'                                  # User and Role Authorization
+gem 'pundit'                                  # User Authorization
+gem 'acts_as_roleable',     '~> 0.4'          # User Roles
 
 # Extras
 gem 'attr_extras'                             # Simplified PORO's
 gem 'duffel'                                  # Better project settings
 gem 'simple_form'                             # A nice form DSL
 gem 'country_select'                          # Provides a Country select for simple_form
+gem 'annotate',             '>= 2.6.0'        # Adds some nice annotations to models
 
 # Code Quality
 gem 'term-ansicolor'

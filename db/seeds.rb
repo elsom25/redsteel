@@ -1,6 +1,8 @@
-user = CreateAdminService.call
-puts "CREATED ADMIN USER: #{user.email}"
+admin = CreateAdminService.call
+puts "CREATED ADMIN USER: #{admin.email}"
 
-AuthenticationProvider.create(name: 'facebook')
-AuthenticationProvider.create(name: 'twitter')
-puts "CREATED AUTHENTICATIONPROVIDERS: #{AuthenticationProvider.all.map(&:name).to_sentence}"
+house = CreateAdminHouseService.call(admin)
+puts "CREATED ADMIN HOUSE: #{house.name}"
+
+providers = CreateAuthenticationProvidersService.call
+puts "CREATED AUTHENTICATION PROVIDERS: #{providers.to_sentence}"
